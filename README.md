@@ -4,6 +4,7 @@ A simple bot with a leveling system and a Economy system. Created to practice Ja
 
 ## Support Server
 Join our support server for any help you need with the code. [Click Here](https://discord.gg/ahcFREu) 
+Join the server to let us know what features you'd like to see us add in the future. 
 
 ## Plans
 
