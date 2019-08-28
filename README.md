@@ -12,4 +12,3 @@ Also let us know what features you'd like to see us add in the future.
   * [x] Give coins at random
   * [x] Pay command 
   * [x] Coins Command
-  * [x] Coins leaderboard
