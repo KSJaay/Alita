@@ -7,9 +7,6 @@ A simple bot with a leveling system and a Economy system. Created to practice Ja
 Join our support server for any help you need with the code [Click Here.](https://discord.gg/ahcFREu) 
 Also let us know what features you'd like to see us add in the future. 
 
-## Plans
-
-* [ ] Economy system
-  * [ ] Give coins at random
-  * [ ] Pay command 
-  * [ ] Coins Command
+## API's to install
+npm install
+npm install Discord.js
