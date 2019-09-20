@@ -1,0 +1,17 @@
+{
+  "name": "ksjaay-bot",
+  "version": "1.0.0",
+  "description": "Discord bot with xp and level up",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "node-fetch": "^2.6.0",
+    "node.js": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "KSJaay",
+  "license": "ISC"
+}
