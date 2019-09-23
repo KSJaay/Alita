@@ -12,6 +12,7 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
+
 const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
@@ -38,7 +39,7 @@ client.on('message', message => {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 
 		if (command.usage) {
-			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+			reply += `\nUsage for command: \`${prefix}${command.name} ${command.usage}\``;
 		}
 
 		return message.channel.send(reply);
