@@ -15,7 +15,8 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
-	console.log('Ready!');
+	console.log(`Ready to Roll! ${client.user.username} is serving ${client.guilds.size} servers`);
+	client.user.setActivity('Myself Get Developed', { type: 'WATCHING' });
 });
 
 client.on('message', message => {
