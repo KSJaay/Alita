@@ -1,17 +1,31 @@
 {
-  "name": "ksjaay-bot",
+  "name": "alita",
   "version": "1.0.0",
-  "description": "Discord bot with xp and level up",
-  "main": "index.js",
+  "description": "Alita is a multi-purpose open source bot",
+  "main": "Alita.js",
   "dependencies": {
-    "discord.js": "^11.5.1",
-    "node-fetch": "^2.6.0",
-    "node.js": "^0.0.0"
+    "chalk": "^3.0.0",
+    "discord.js": "github:discordjs/discord.js",
+    "mongoose": "^5.8.11"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node Alita.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KSJaay1/Alita.git"
+  },
+  "keywords": [
+    "Alita",
+    "Discord",
+    "discordjs.",
+    "mongodb"
+  ],
   "author": "KSJaay",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KSJaay1/Alita/issues"
+  },
+  "homepage": "https://github.com/KSJaay1/Alita#readme"
 }
