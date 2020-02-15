@@ -1,7 +1,7 @@
 module.exports = {
 
-	token: "NTA3MjU5ODMwODEwMDUwNTYx.Xfuowg.Xz3T1BzOncx_AoDmMnZS9-YRqmk",
-	mongoIP: "mongodb://localhost:27017/AtlantaBot",
+	token: "",
+	mongoIP: "mongodb://localhost:27017/AlitaBot",
 	prefix: ";;",
 	embed: {
 		color: "#0091fc",
