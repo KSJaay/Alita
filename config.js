@@ -1,10 +1,10 @@
 module.exports = {
 
-	token: "",
+	token: "BOT ID",
 	mongoIP: "mongodb://localhost:27017/AlitaBot",
 	prefix: ";;",
 	embed: {
-		color: "#0091fc",
+		color: "#7122E3",
 		footer: "Alitabot.me/premium ❤️"
 	},
 	owner: {
