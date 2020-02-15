@@ -7,5 +7,5 @@ We wanted to create a bot which can basically do anything you want it to do (kin
 ## Support Server
 If you need any help check out our support server and we'll be happy to help you. But please DO NOT PING OUR SUPPORT TEAM they don't know much about the code so they won't be able to help you.
 
-Join our support server for any help you need with the code [Click Here.](https://discord.gg/ahcFREu)
+Join our support server for any help you need with the code [Click Here.](https://discord.gg/rZsZHqM)
 Also let us know what features you'd like to see us add in the future.
