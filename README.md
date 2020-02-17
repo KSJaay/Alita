@@ -1,3 +1,5 @@
+[![Alita Dark Logo](https://cdn.discordapp.com/attachments/455063175277051934/679113277099474954/banner.PNG)](https://Alitabotme 'Alita Bot')
+
 # AlitaBot
 A simple bot created to teach users how to basic code using Discord.js. Will be getting more Advance over time. Alita will have all features except economy and minigames, this is because we already have a bot which does. [Click Here.](https://top.gg/bot/610459754258759680)
 
