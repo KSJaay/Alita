@@ -14,7 +14,7 @@ module.exports = class {
         client.logger.log(`Autobots roll out.`, "ready");
 
 
-            client.user.setActivity("YOU", {type: "WATCHING"});
+            client.user.setActivity("For -aHelp", {type: "WATCHING"});
 
     }
 }
