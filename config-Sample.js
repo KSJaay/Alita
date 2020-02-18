@@ -1,6 +1,6 @@
 module.exports = {
 
-	token: "NTA3MjU5ODMwODEwMDUwNTYx.Xkh2-Q.gRTiAy4q9bxE1c_O2cg3Syc0KQg",
+	token: "BOT TOKEN",
 	mongoIP: "mongodb://localhost:27017/AlitaBot",
 	prefix: ";;",
 	embed: {
