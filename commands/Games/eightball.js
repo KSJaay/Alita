@@ -2,22 +2,6 @@ const Command = require("../../base/Command.js"),
 Discord = require("discord.js");
 
 class EightBall extends Command {
-    constructor (client) {
-        super(client, {
-            name: "eightball",
-            description: "Ask eightball a question",
-            usage: "eightball {Question}",
-            dirname: __dirname,
-            enabled: true,
-            guildOnly: false,
-            nsfw: false,
-            aliases: ["8ball", "eball"],
-            memberPermissions: [],
-            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS" ],
-            ownerOnly: false,
-            cooldown: 1000
-        });
-    }
 
     async run (message, args, db) {
 
@@ -61,6 +45,28 @@ class EightBall extends Command {
 
       return message.channel.send(embed)
     }
+
+
+    constructor (client) {
+        super(client, {
+            name: "eightball",
+            description: "Ask eightball a question",
+            usage: "eightball {Question}",
+            dirname: __dirname,
+            enabled: true,
+            guildOnly: false,
+            nsfw: false,
+            aliases: ["8ball", "eball"],
+            memberPermissions: [],
+            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS" ],
+            ownerOnly: false,
+            cooldown: 1000
+        });
+    }
+
+
+
+
 }
 
 module.exports = EightBall;

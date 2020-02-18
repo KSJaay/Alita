@@ -2,22 +2,6 @@ const Command = require("../../base/Command.js"),
 Discord = require("discord.js");
 
 class Botstats extends Command {
-    constructor (client) {
-        super(client, {
-            name: "botstats",
-            description: "Show information about the bot.",
-            usage: "botstats",
-            dirname: __dirname,
-            enabled: true,
-            guildOnly: false,
-            nsfw: false,
-            aliases: ["bot-stats"],
-            memberPermissions: [],
-            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS" ],
-            ownerOnly: false,
-            cooldown: 1000
-        });
-    }
 
     async run (message, args, db) {
 
@@ -73,6 +57,23 @@ class Botstats extends Command {
       }
 
 
+    }
+
+    constructor (client) {
+        super(client, {
+            name: "botstats",
+            description: "Show information about the bot.",
+            usage: "botstats",
+            dirname: __dirname,
+            enabled: true,
+            guildOnly: false,
+            nsfw: false,
+            aliases: ["bot-stats"],
+            memberPermissions: [],
+            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS" ],
+            ownerOnly: false,
+            cooldown: 1000
+        });
     }
 }
 

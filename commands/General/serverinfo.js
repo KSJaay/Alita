@@ -2,22 +2,6 @@ const Command = require("../../base/Command.js"),
 Discord = require("discord.js");
 
 class Serverinfo extends Command {
-    constructor (client) {
-        super(client, {
-            name: "serverinfo",
-            description: "Find out information about your server",
-            usage: "serverinfo",
-            dirname: __dirname,
-            enabled: true,
-            guildOnly: false,
-            nsfw: false,
-            aliases: [],
-            memberPermissions: [],
-            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS" ],
-            ownerOnly: false,
-            cooldown: 1000
-        });
-    }
 
     async run (message, args, db) {
 
@@ -44,6 +28,25 @@ class Serverinfo extends Command {
       return message.channel.send(announcementEmbed)
 
     }
+
+    constructor (client) {
+        super(client, {
+            name: "serverinfo",
+            description: "Find out information about your server",
+            usage: "serverinfo",
+            dirname: __dirname,
+            enabled: true,
+            guildOnly: false,
+            nsfw: false,
+            aliases: [],
+            memberPermissions: [],
+            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS" ],
+            ownerOnly: false,
+            cooldown: 1000
+        });
+    }
+
+
 }
 
 module.exports = Serverinfo;

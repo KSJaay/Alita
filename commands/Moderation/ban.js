@@ -2,22 +2,6 @@ const Command = require("../../base/Command.js"),
 Discord = require("discord.js");
 
 class Ban extends Command {
-    constructor (client) {
-        super(client, {
-            name: "ban",
-            description: "ban a member from your server",
-            usage: "ban @user",
-            dirname: __dirname,
-            enabled: true,
-            guildOnly: false,
-            nsfw: false,
-            aliases: [],
-            memberPermissions: [ "BAN_MEMBERS", "MANAGE_CHANNELS" ],
-            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS", "BAN_MEMBERS" ],
-            ownerOnly: false,
-            cooldown: 1000
-        });
-    }
 
     async run (message, args, db) {
 
@@ -42,6 +26,26 @@ class Ban extends Command {
 
 
     }
+
+    constructor (client) {
+        super(client, {
+            name: "ban",
+            description: "ban a member from your server",
+            usage: "ban @user",
+            dirname: __dirname,
+            enabled: true,
+            guildOnly: false,
+            nsfw: false,
+            aliases: [],
+            memberPermissions: [ "BAN_MEMBERS", "MANAGE_CHANNELS" ],
+            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS", "BAN_MEMBERS" ],
+            ownerOnly: false,
+            cooldown: 1000
+        });
+    }
+
+
+
 }
 
 module.exports = Ban;

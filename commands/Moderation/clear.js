@@ -2,22 +2,6 @@ const Command = require("../../base/Command.js"),
 Discord = require("discord.js");
 
 class Clear extends Command {
-    constructor (client) {
-        super(client, {
-            name: "clear",
-            description: "Clear specific number of messages",
-            usage: "Clear {Amount}",
-            dirname: __dirname,
-            enabled: true,
-            guildOnly: false,
-            nsfw: false,
-            aliases: [],
-            memberPermissions: [ "MANAGE_MESSAGES" ],
-            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS", "MANAGE_MESSAGES" ],
-            ownerOnly: false,
-            cooldown: 1000
-        });
-    }
 
     async run (message, args, db) {
 
@@ -39,6 +23,27 @@ class Clear extends Command {
 
 
     }
+
+
+    constructor (client) {
+        super(client, {
+            name: "clear",
+            description: "Clear specific number of messages",
+            usage: "Clear {Amount}",
+            dirname: __dirname,
+            enabled: true,
+            guildOnly: false,
+            nsfw: false,
+            aliases: [],
+            memberPermissions: [ "MANAGE_MESSAGES" ],
+            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS", "MANAGE_MESSAGES" ],
+            ownerOnly: false,
+            cooldown: 1000
+        });
+    }
+
+
+
 }
 
 module.exports = Clear;

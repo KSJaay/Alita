@@ -2,22 +2,6 @@ const Command = require("../../base/Command.js"),
 Discord = require("discord.js");
 
 class Kick extends Command {
-    constructor (client) {
-        super(client, {
-            name: "kick",
-            description: "Kick a member from your server",
-            usage: "Kick @user",
-            dirname: __dirname,
-            enabled: true,
-            guildOnly: false,
-            nsfw: false,
-            aliases: [],
-            memberPermissions: [ "KICK_MEMBERS", "MANAGE_CHANNELS" ],
-            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS", "KICK_MEMBERS" ],
-            ownerOnly: false,
-            cooldown: 1000
-        });
-    }
 
     async run (message, args, db) {
 
@@ -41,6 +25,30 @@ class Kick extends Command {
 
 
     }
+
+
+    constructor (client) {
+        super(client, {
+            name: "kick",
+            description: "Kick a member from your server",
+            usage: "Kick @user",
+            dirname: __dirname,
+            enabled: true,
+            guildOnly: false,
+            nsfw: false,
+            aliases: [],
+            memberPermissions: [ "KICK_MEMBERS", "MANAGE_CHANNELS" ],
+            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS", "KICK_MEMBERS" ],
+            ownerOnly: false,
+            cooldown: 1000
+        });
+    }
+
+
+
+
+
+
 }
 
 module.exports = Kick;

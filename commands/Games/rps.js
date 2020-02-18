@@ -2,22 +2,6 @@ const Command = require("../../base/Command.js"),
 Discord = require("discord.js");
 
 class Rps extends Command {
-    constructor (client) {
-        super(client, {
-            name: "Rock-paper-scissors",
-            description: "Play a game of rps against Alita",
-            usage: "rps",
-            dirname: __dirname,
-            enabled: true,
-            guildOnly: false,
-            nsfw: false,
-            aliases: ["rps"],
-            memberPermissions: [],
-            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS" ],
-            ownerOnly: false,
-            cooldown: 1000
-        });
-    }
 
     async run (message, args, db) {
 
@@ -85,6 +69,26 @@ class Rps extends Command {
 
       });
     }
+
+
+    constructor (client) {
+        super(client, {
+            name: "Rock-paper-scissors",
+            description: "Play a game of rps against Alita",
+            usage: "rps",
+            dirname: __dirname,
+            enabled: true,
+            guildOnly: false,
+            nsfw: false,
+            aliases: ["rps"],
+            memberPermissions: [],
+            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS" ],
+            ownerOnly: false,
+            cooldown: 1000
+        });
+    }
+
+
 }
 
 module.exports = Rps;

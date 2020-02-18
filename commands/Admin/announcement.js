@@ -2,22 +2,6 @@ const Command = require("../../base/Command.js"),
 Discord = require("discord.js");
 
 class Announcement extends Command {
-    constructor (client) {
-        super(client, {
-            name: "announcement",
-            description: "Create an embed for an announcement",
-            usage: "announcement {Text}",
-            dirname: __dirname,
-            enabled: true,
-            guildOnly: false,
-            nsfw: false,
-            aliases: ["announce"],
-            memberPermissions: ["ADMINISTRATOR"],
-            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS" ],
-            ownerOnly: false,
-            cooldown: 1000
-        });
-    }
 
     async run (message, args, db) {
       const embedMessage = args.join(" ");
@@ -37,6 +21,26 @@ class Announcement extends Command {
       .setColor(db.config.embed.color)
       return message.channel.send(announcementEmbed)
     }
+
+
+    constructor (client) {
+        super(client, {
+            name: "announcement",
+            description: "Create an embed for an announcement",
+            usage: "announcement {Text}",
+            dirname: __dirname,
+            enabled: true,
+            guildOnly: false,
+            nsfw: false,
+            aliases: ["announce"],
+            memberPermissions: ["ADMINISTRATOR"],
+            botPerms: [ "SEND_MESSAGES", "EMBED_LINKS" ],
+            ownerOnly: false,
+            cooldown: 1000
+        });
+    }
+
+
 }
 
 module.exports = Announcement;

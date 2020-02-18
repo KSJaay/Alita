@@ -2,25 +2,6 @@ const Command = require("../../base/Command.js"),
 Discord = require("discord.js");
 
 class Help extends Command {
-    constructor (client) {
-        super(client, {
-            name: "help",
-            description: "Shows all the commands Alita offers",
-            usage: "help",
-            dirname: __dirname,
-            enabled: true,
-            guildOnly: false,
-            aliases: ["help"],
-            memberPermissions: [],
-            botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
-            nsfw: false,
-            supporter: false,
-            donator: false,
-            cooldown: 3000,
-            donatorCD: 0,
-            ownerOnly: false
-        });
-    }
 
     async run (message, args, data) {
 
@@ -45,9 +26,24 @@ class Help extends Command {
 
         embed.setAuthor("Alita's commands", message.client.user.displayAvatarURL());
         return message.channel.send(embed);
-        
-    }
 
+    }
+    constructor (client) {
+        super(client, {
+            name: "help",
+            description: "Shows all the commands Alita offers",
+            usage: "help",
+            dirname: __dirname,
+            enabled: true,
+            guildOnly: false,
+            aliases: ["help"],
+            memberPermissions: [],
+            botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
+            nsfw: false,
+            cooldown: 3000,
+            ownerOnly: false
+        });
+    }
 }
 
 module.exports = Help;
