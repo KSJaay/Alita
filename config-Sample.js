@@ -2,7 +2,7 @@ module.exports = {
 
 	token: "BOT TOKEN",
 	mongoIP: "mongodb://localhost:27017/AlitaBot",
-	prefix: ";;",
+	prefix: "-a",
 	embed: {
 		color: "#7122E3",
 		win: "#00FF00",
