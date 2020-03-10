@@ -7,11 +7,11 @@ class Fortnite extends Command {
 
     async run (message, args, data) {
 
-        if(!data.config.api.fortnite || data.config.api.fortnite.length === ""){
+        if(!data.config.api.trackergg || data.config.api.trackergg.length === ""){
             return message.channel.send("Unable to find command");
         }
 
-        let fortniteData = new fortnite(data.config.api.fortnite);
+        let fortniteData = new fortnite(data.config.api.trackergg);
 
         let platform = args[0].toLowerCase();
         if(!platform || (platform != "pc" && platform != "xbox" && platform != "psn")){

@@ -14,6 +14,6 @@ module.exports = {
 		name: "KSJaay#2487"
 	},
 	api: {
-		fortnite:""
+		trackergg:""
 	}
 }
