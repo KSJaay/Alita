@@ -13,7 +13,7 @@ class Fortnite extends Command {
 
         let fortniteData = new fortnite(data.config.api.fortnite);
 
-        let platform = args[0];
+        let platform = args[0].toLowerCase();
         if(!platform || (platform != "pc" && platform != "xbox" && platform != "psn")){
             return message.channel.send("Please mention a valid platform");
         }
@@ -57,13 +57,19 @@ class Fortnite extends Command {
             // Send embed
             let embed = new Discord.MessageEmbed()
             .setDescription(`Data for ${fortData.username} on ${platform}`)
-            .addField(`Lifetime`, `Average Kills: ${ltAvgKills.toFixed(2)}\nKills: ${ltKills}\nMatches: ${ltMatches}\nWins: ${lfWins}\nWin Rate: ${ltWinPercent.toFixed(2)}%\nK/D: ${ltKD}`)
-            .addField(`Solo`, `Average Kills: ${soloAvgKills.toFixed(2)}\nKills: ${soloKills}\nMatches: ${soloMatches}\nWin Rate: ${winsSoloPercent.toFixed(2)}%\nK/D: ${soloKD}`)
-            .addField(`Duos`, `Average Kills: ${duoAvgKills.toFixed(2)}\nKills: ${duoKills}\nMatches: ${duoMatches}\nWin Rate: ${winsDuoPercent.toFixed(2)}%\nK/D: ${duoKD}`)
-            .addField(`Squads`, `Average Kills: ${squadAvgKills.toFixed(2)}\nKills: ${squadKills}\nMatches: ${squadMatches}\nWins: ${squadWins}\nWin Rate: ${squadPercent.toFixed(2)}%\nK/D: ${squadKD}`)
+            .addFields(
+            { name: `Lifetime`, value: `Average Kills: ${ltAvgKills.toFixed(2)}\nKills: ${ltKills}\nMatches: ${ltMatches}\nWins: ${lfWins}\nWin Rate: ${ltWinPercent.toFixed(2)}%\nK/D: ${ltKD}`},
+            { name: `Solo`, value: `Average Kills: ${soloAvgKills.toFixed(2)}\nKills: ${soloKills}\nMatches: ${soloMatches}\nWins: ${soloWins}\nWin Rate: ${winsSoloPercent.toFixed(2)}%\nK/D: ${soloKD}`},
+            { name: `Duos`, value: `Average Kills: ${duoAvgKills.toFixed(2)}\nKills: ${duoKills}\nMatches: ${duoMatches}\nWins: ${duoWins}\nWin Rate: ${winsDuoPercent.toFixed(2)}%\nK/D: ${duoKD}`},
+            { name: `Squads`, value: `Average Kills: ${squadAvgKills.toFixed(2)}\nKills: ${squadKills}\nMatches: ${squadMatches}\nWins: ${squadWins}\nWin Rate: ${squadPercent.toFixed(2)}%\nK/D: ${squadKD}`},
+          )
+
             .setColor(data.config.embed.color)
             .setFooter(data.config.embed.footer);
             return message.channel.send(embed);
+
+
+
 
         }).catch((err) => {
             console.log(err)

@@ -30,7 +30,7 @@ class EightBall extends Command {
 
       const answers = options[Math.floor(Math.random() * options.length)];
       const question = message.content.split(' ').slice(1);
-      if(!question){
+      if(!question || !args[0]){
         return message.channel.send("Please ask a valid question.")
       }
       if(question.length > 1024){
@@ -38,8 +38,8 @@ class EightBall extends Command {
       }
 
       const embed = new Discord.MessageEmbed()
-      .addField("Question", question.join(' '))
-      .addField("Answer", answers)
+      .addFields({name: "Question", value: question.join(' ')},
+                 {name: "Answer", value: answers})
       .setColor('#fffffe')
       .setAuthor(message.author.tag, message.author.displayAvatarURL());
 

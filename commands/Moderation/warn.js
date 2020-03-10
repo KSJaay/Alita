@@ -28,7 +28,10 @@ class Warn extends Command {
       }
 
       let embed = new Discord.MessageEmbed()
-      .setDescription(`<@`+member+`>` + " warned!\n\nReason:\n" + reason)
+      .setDescription(`<@`+member+`>` + " warned!")
+      .addFields(
+        {name: "Reason:", value: reason}
+      )
 
       let time = Date.now();
       let staff = message.author.id;

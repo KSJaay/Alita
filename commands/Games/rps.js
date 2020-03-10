@@ -37,21 +37,21 @@ class Rps extends Command {
           let winEmbed = new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
               .setDescription(`You won!`)
-              .addField("Results:", `${reaction._emoji} vs ${randChoice}`)
+              .addFields({name: "Results:", value: `${reaction._emoji} vs ${randChoice}`})
               .setColor(db.config.embed.win)
               .setTimestamp();
 
           let tieEmbed = new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
               .setDescription(`You tied!`)
-              .addField("Results:", `${reaction._emoji} vs ${randChoice}`)
+              .addFields({name: "Results:", value: `${reaction._emoji} vs ${randChoice}`})
               .setColor(db.config.embed.color)
               .setTimestamp();
 
           let lostEmbed = new Discord.MessageEmbed()
               .setAuthor(message.author.tag, message.author.displayAvatarURL())
               .setDescription(`You lost!`)
-              .addField("Results:", `${reaction._emoji} vs ${randChoice}`)
+              .addFields({name:"Results:", value: `${reaction._emoji} vs ${randChoice}`})
               .setColor(db.config.embed.lost)
               .setTimestamp();
 

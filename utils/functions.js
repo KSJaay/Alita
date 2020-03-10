@@ -20,7 +20,7 @@ module.exports = {
             resolve(usersData);
         });
     },
-    
+
     getPrefix(message, data){
     if(message.channel.type !== "dm"){
         const prefixes = [

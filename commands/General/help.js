@@ -21,8 +21,10 @@ class Help extends Command {
 
         categories.sort().forEach((folder) => {
               let asCmds = commands.filter((cmd) => cmd.help.category === folder);
-              embed.addField(folder, asCmds.map((cmd) => cmd.help.name).join(", "));
+              embed.addFields({ name: folder, value: asCmds.map((cmd) => cmd.help.name).join(", ")});
         });
+
+
 
         embed.setAuthor("Alita's commands", message.client.user.displayAvatarURL());
         return message.channel.send(embed);

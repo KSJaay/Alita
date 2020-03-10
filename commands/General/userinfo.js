@@ -19,33 +19,33 @@ class Userinfo extends Command {
       let memberColor = member.displayHexColor;
       let memberHRole = member.roles.highest;
       let memberJoined = member.joinedAt;
-      console.log(member)
+      //console.log(member)
 
       let announcementEmbed = new Discord.MessageEmbed()
       .setAuthor(user.username, user.displayAvatarURL())
       .setThumbnail(user.displayAvatarURL())
       .setFooter(db.config.embed.footer)
       .setColor(db.config.embed.color)
-      .addField("ID", userID, true)
-      .addField("Username", userName,true)
-      .addField("Created Discord", `${joinedDate.toLocaleDateString()}`)
-      .addField("Joined server", `${memberJoined.toLocaleDateString()}`)
-      .addField("Member color", memberColor, true)
-      .addField("Highest role", member.roles.highest, true)
-      .addField("Total roles", member.roles.cache.size)
+      .addFields(
+        { name: 'Username', value: userName, inline: true },
+        { name: 'Created Discord', value: joinedDate.toLocaleDateString(), inline: false },
+        { name: 'Joined server', value: memberJoined.toLocaleDateString(), inline: false },
+        { name: 'Member color', value: memberColor, inline: true },
+        { name: 'Highest role', value: member.roles.highest, inline: true },
+        { name: 'Total roles', value: member.roles.cache.size, inline: true },
+        { name: 'Status', value: memberColor, inline: true },
+      )
 
-
-      if(userStatus === "dnd"){
-        announcementEmbed.addField("Staus", ":red_circle: Do not disturb")
-      }else if(userStatus === "idle"){
-        announcementEmbed.addField("Staus", ":yellow_circle: Idle")
-      }else if(userStatus === "online"){
-        announcementEmbed.addField("Staus", ":green_circle: Online")
-      }else if(userStatus === "offline"){
-        announcementEmbed.addField("Staus", ":white_circle: Offline")
-      }else{
-        announcementEmbed.addField("Staus", "IDK")
-      }
+       if(userStatus === "dnd"){
+         announcementEmbed.addFields({ name: 'Status', value: ":red_circle: Do not disturb", inline: true })
+       }else if(userStatus === "idle"){
+         announcementEmbed.addFields({ name: 'Status', value: ":yellow_circle: Idle", inline: true })
+       }else if(userStatus === "online"){
+           announcementEmbed.addFields({ name: 'Status', value: ":green_circle: Online", inline: true })
+       }else if(userStatus === "offline"){
+           announcementEmbed.addFields({ name: 'Status', value: ":white_circle: Offline", inline: true })
+       }else{
+       }
 
       return message.channel.send(announcementEmbed)
     }

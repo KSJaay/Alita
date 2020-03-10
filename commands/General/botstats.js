@@ -12,6 +12,8 @@ class Botstats extends Command {
       let ramUsage = (process.memoryUsage().heapTotal / 1024 / 1024).toFixed(2) + "MB";
       let discord = Discord.version;
       let node = process.versions.node;
+
+
       let announcementEmbed = new Discord.MessageEmbed()
       .setAuthor(`${this.client.user.username} stats`, this.client.user.displayAvatarURL())
       .setThumbnail(this.client.user.displayAvatarURL())
@@ -19,23 +21,25 @@ class Botstats extends Command {
       .setColor(db.config.embed.color);
 
       if(uptime.day > 0){
-        announcementEmbed.addField("Uptime", `${uptime.day} days ${uptime.hour} hours ${uptime.minute} minutes ${uptime.seconds} seconds`)
+        announcementEmbed.addFields({name: "Uptime", value: `${uptime.day} days ${uptime.hour} hours ${uptime.minute} minutes ${uptime.seconds} seconds`})
       }else if(uptime.hour > 0){
-        announcementEmbed.addField("Uptime", `${uptime.hour} hours ${uptime.minute} minutes ${uptime.seconds} seconds`)
+        announcementEmbed.addFields({ name: "Uptime", value: `${uptime.hour} hours ${uptime.minute} minutes ${uptime.seconds} seconds`})
       }else if(uptime.minute > 0){
-        announcementEmbed.addField("Uptime", `${uptime.minute} minutes ${uptime.seconds} seconds`)
+        announcementEmbed.addFields({ name: "Uptime", value: `${uptime.minute} minutes ${uptime.seconds} seconds`})
       }else if(uptime.seconds > 0){
-        announcementEmbed.addField("Uptime", `${uptime.seconds} seconds`)
+        announcementEmbed.addFields({ name: "Uptime", value: `${uptime.seconds} seconds`})
       }else{
-        announcementEmbed.addField("Uptime", `IDK :sob:`)
+        announcementEmbed.addFields({ name: "Uptime", value: `IDK :sob:`})
       }
 
-      announcementEmbed.addField("Guilds", totalGuilds, true)
-      .addField("Users", users, true)
-      .addField("Channels", channels, true)
-      .addField("RAM usage", ramUsage, true)
-      .addField("Discord.js", discord, true)
-      .addField("Node.js", node, true)
+      announcementEmbed.addFields(
+        { name: "Guilds", value: totalGuilds, inline: true},
+        { name: "Users", value: users, inline: true },
+        { name: "Channels", value: channels, inline: true },
+        { name: "RAM usage", value: ramUsage, inline: true },
+        { name: "Discord.js", value: discord, inline: true },
+        { name: "Node.js", value: node, inline: true },
+      )
       return message.channel.send(announcementEmbed)
 
 

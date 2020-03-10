@@ -6,7 +6,10 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "discord.js": "github:discordjs/discord.js",
-    "mongoose": "^5.8.11"
+    "fortnite": "^4.3.2",
+    "fortnite-9812": "^1.0.4",
+    "mongoose": "^5.8.11",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -19,7 +22,7 @@
   "keywords": [
     "Alita",
     "Discord",
-    "discordjs.",
+    "discordjs",
     "mongodb"
   ],
   "author": "KSJaay",
