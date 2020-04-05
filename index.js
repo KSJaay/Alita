@@ -8,15 +8,14 @@ readdir = util.promisify(fs.readdir),
 mongoose = require("mongoose");
 
 client.logger = require("./modules/Logger.js");
-client.errors = require("./modules/Errors.js");
+client.errors = require("./modules/Embeds.js");
 client.tools = require("./modules/Tools.js");
+client.data = require("./modules/MongoDB.js");
 
 // Event Handler
 client.events = new Discord.Collection();
 // Command Handler
 client.commands = new Discord.Collection();
-// Collection for guildDB
-client.guildsData = new Discord.Collection();
 
 async function init(){
 

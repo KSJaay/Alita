@@ -6,7 +6,7 @@ guildsDB = require("./../base/Guild.js"),
 membersDB = require("./../base/Member.js");
 
 //Create users Database
-module.exports.createUserDB = async function(userID){
+module.exports.getUserDB = async function(userID){
 
   let userDB = await usersDB.findOne( { id: userID } );
   if(userDB){
@@ -21,7 +21,7 @@ module.exports.createUserDB = async function(userID){
 }
 
 //Create Guilds Database
-module.exports.createGuildDB = async function (guildID){
+module.exports.getGuildDB = async function (guildID){
 
   let guildDB = await guildsDB.findOne( { id: guildID } );
   if(guildDB){
@@ -36,7 +36,7 @@ module.exports.createGuildDB = async function (guildID){
 }
 
 //Create Members Database
-module.exports.createMemberDB = async function (userID, guildID){
+module.exports.getMemberDB = async function (userID, guildID){
 
   let memeberDB = await membersDB.findOne( { id: userID, guildID: guildID } );
   if(memeberDB){
