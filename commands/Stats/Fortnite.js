@@ -7,7 +7,6 @@ module.exports = {
       name: "fortnite",
       description: "Fortnite Stats for a user",
       usage: "fortnite {Platform} {Username}",
-      category: "Stats",
       enabled: true,
       guildOnly: true,
       aliases: [],
@@ -19,22 +18,27 @@ module.exports = {
 
     async execute(client, message, args) {
 
+      //Check if there's an API key in config
       if(!config.trackergg || config.trackergg.length === ""){
             return message.channel.send("Unable to find command");
         }
-
+        //Create a new Fortnite using the API key
         let fortniteData = new fortnite(config.trackergg);
 
+        //Get the platform user entered
         let platform = args[0].toLowerCase();
+        //If the platform isn't the following then return error message
         if(!platform || (platform != "pc" && platform != "xbox" && platform != "psn")){
             return message.channel.send("Please mention a valid platform");
         }
-
+        //Get the username
         let user = args.slice(1).join(" ");
+        //If there isn't a username return error
         if(!user){
             return message.channel.send("Please mention a valid username");
         }
 
+        //Get the users data using the username and platform
         fortniteData.user(user, platform).then(async (fortData) => {
 
             let lfWins = fortData.stats.lifetime.wins;
@@ -76,8 +80,8 @@ module.exports = {
             { name: `Squads`, value: `Average Kills: ${squadAvgKills.toFixed(2)}\nKills: ${squadKills}\nMatches: ${squadMatches}\nWins: ${squadWins}\nWin Rate: ${squadPercent.toFixed(2)}%\nK/D: ${squadKD}`},
           )
 
-            // .setColor(data.config.embed.color)
-            // .setFooter(data.config.embed.footer);
+            .setColor(config.color)
+            .setFooter(config.footer);
             return message.channel.send(embed);
 
 

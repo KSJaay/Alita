@@ -6,7 +6,6 @@ module.exports = {
       name: "apex",
       description: "Apex Stats for a user",
       usage: "apex {Platform} {Username}",
-      category: "Stats",
       enabled: true,
       guildOnly: true,
       aliases: [],
@@ -18,31 +17,39 @@ module.exports = {
 
     async execute(client, message, args) {
 
+            //Check if there's an API key in config
             if(!config.trackergg || config.trackergg.length === ""){
                 return message.channel.send("Unable to find command");
             }
+
+            //Create a new ApexTab using the API key
             let apexStats = new ApexTab(config.trackergg);
 
+            //Get the platform the user entered
             let platform = args[0].toUpperCase();
+
+            //If the platform isn't the following then return error message
             if(!platform || (platform != "PC" && platform != "XBOX" && platform != "PSN")){
                 return message.channel.send("Please mention a valid platform (PC, XBOX or PSN)");
             }
 
+            //Get the username
             let user = args.slice(1).join(" ");
+            //If there isn't a username return error
             if(!user){
                 return message.channel.send("Please mention a valid username");
             }
 
 
-
-            apexStats.getDetailedPlayer(user, platform) //or XBOX or PSN
+            //Get the users data using the username and platform
+            apexStats.getDetailedPlayer(user, platform)
               .then((dataPulled)=>{
                   let level = dataPulled.metadata.level;
                   let rankName = dataPulled.metadata.rankName;
                   let rankImage = dataPulled.metadata.rankImage;
                   let playerImage = dataPulled.metadata.avatarUrl;
 
-                    // Send embed
+                    // Add the userdata to an embed
                     let embed = new Discord.MessageEmbed()
                     .setAuthor(`Apex data for ${dataPulled.metadata.platformUserHandle} on ${platform}`, playerImage)
                     .setThumbnail(rankImage)
@@ -64,6 +71,7 @@ module.exports = {
                     }
                     embed.setColor(config.color)
                     .setFooter(config.footer);
+                    //send the embed
                      return message.channel.send(embed);
 
 
