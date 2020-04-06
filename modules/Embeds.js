@@ -4,28 +4,28 @@ const Discord = require("discord.js");
 module.exports.Error = (message) => {
     const cmdEmbed = new Discord.MessageEmbed()
         .setColor("RED")
-        .setTitle("Oops!")
+        .setTitle("Uh Oh!")
         .setDescription("**Looks like there was an error trying to do this oof**");
 
-    message.author.send(cmdEmbed);
+    return message.author.send(cmdEmbed);
 };
 
 // Command NSFW
-module.exports.NSFW = (message) => {
+module.exports.nsfw = (message) => {
     const cmdEmbed = new Discord.MessageEmbed()
         .setColor("RED")
-        .setTitle("Oops!")
-        .setDescription("**Looks like there was an error trying to do this oof**");
+        .setTitle("Uh Oh!")
+        .setDescription("This channel isn't a NSFW. Go to an NSFW channel to use this command 😏");
 
-    message.author.send(cmdEmbed);
+    return message.channel.send(cmdEmbed);
 };
 
 // Command Cooldown
-module.exports.Cooldown = (cooldown, message) => {
+module.exports.Cooldown = (message, cooldown) => {
     const cmdEmbed = new Discord.MessageEmbed()
         .setColor("RED")
-        .setTitle("Oops!")
-        .setDescription("**Looks like there was an error trying to do this oof**");
+        .setTitle("Uh Oh!")
+        .setDescription("You need to calm down, you're using commands too quickly wait " + cooldown + " seconds.");
 
-    message.author.send(cmdEmbed);
+    return message.channel.send(cmdEmbed);
 };
