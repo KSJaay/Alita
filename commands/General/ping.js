@@ -10,7 +10,7 @@ module.exports = {
     guildOnly: true,
     aliases: [],
     memberPermissions: [],
-    botPermissions: ["SEND_MESSAGES",
+    botPermissions: ["SEND_MESSAGES"],
     nsfw: false,
     cooldown: 5000,
     ownerOnly: false,
