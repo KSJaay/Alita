@@ -35,11 +35,11 @@ Also let us know what features you'd like to see us add in the future.
 | `Fortnite` | Fortnite Stats for a user |
 
 # Future Commands
-[] Games Stats (Fortnite, Apex, R6? etc...)
-[] Memes/Images (Get from randomPuppy)
-[] Random Games (RPS)
-[] Social media stats (Instagram, Twitter, YouTube etc... Compare Social media accounts)
-[] Moderation commands (Kick, Ban, warn etc...)
-[] Custom Embeds (No clue how to do this one)
-[] Music??
-[]
+[ ] Games Stats (Fortnite, Apex, R6? etc...)
+[ ] Memes/Images (Get from randomPuppy)
+[ ] Random Games (RPS)
+[ ] Social media stats (Instagram, Twitter, YouTube etc... Compare Social media accounts)
+[ ] Moderation commands (Kick, Ban, warn etc...)
+[ ] Custom Embeds (No clue how to do this one)
+[ ] Music??
+[ ] ???
