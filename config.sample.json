@@ -1,0 +1,8 @@
+{
+  "token": "Bot-Token",
+  "prefix": "-a",
+  "mongoDB": "mongodb://localhost:27017/AlitaBot",
+  "trackergg": "",
+  "color": "#7122E3",
+  "footer": "alitabot.me/premium ❤️"
+}
