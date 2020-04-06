@@ -28,6 +28,13 @@ Also let us know what features you'd like to see us add in the future.
 | `Eightball` | Let eightball answer your questions |
 | `RPS` | Play a game of rock-paper-scissors |
 
+### Moderation
+| Command | Description |
+| --- | --- |
+| `Ban` | Ban a member from your server |
+| `Clear` | Clear specific number of messages |
+| `Kick` | Kick a member from your server |
+
 ### Stats
 | Command | Description |
 | --- | --- |

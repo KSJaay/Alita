@@ -64,7 +64,7 @@ module.exports = (client, message) => {
       }
 
       if(!message.channel.permissionsFor(message.member).has("EMBED_LINKS")){
-          neededPerms.push("EMBED_LINKS");
+          return message.channel.send("I need permission to send EMBED_LINKS")
       }
 
       cmd.botPermissions.forEach((perm) => {

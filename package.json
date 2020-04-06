@@ -9,7 +9,8 @@
     "discord.js": "^12.1.1",
     "fortnite": "^4.3.2",
     "moment": "^2.24.0",
-    "mongoose": "^5.9.7"
+    "mongoose": "^5.9.7",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {},
   "scripts": {

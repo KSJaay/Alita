@@ -1,11 +1,41 @@
-// module.exports.getUser = async function(search, client){
-//
-// }
+module.exports.getUser = async function(search, client){
+  //Finds the user
+  let user = null;
+  if(!search || typeof search !== "string") return;
+  if(search.match(/^<@!?(\d+)>$/)){
+      let id = search.match(/^<@!?(\d+)>$/)[1];
+      user = client.users.fetch(id).catch((err) => {});
+      if(user) return user;
+  }
+  if(search.match(/^!?(\w+)#(\d+)$/)){
+      let username = search.match(/^!?(\w+)#(\d+)$/)[0];
+      let discriminator = search.match(/^!?(\w+)#(\d+)$/)[1];
+      user = client.users.find((u) => u.username === username && u.discriminator === discriminator);
+      if(user) return user;
+  }
+  user = await client.users.fetch(search).catch(() => {});
+  return user;
 
-// module.exports.getMember = async function(search, guild){
-//
-// }
-//
+}
+
+module.exports.getMember = async function(search, guild){
+  //Finds a member from the current server
+  let member = null;
+  if(!search || typeof search !== "string") return;
+  if(search.match(/^<@!?(\d+)>$/)){
+      let id = search.match(/^<@!?(\d+)>$/)[1];
+      member = await guild.members.fetch(id).catch(() => {});
+      if(member) return member;
+  }
+  if(search.match(/^!?(\w+)#(\d+)$/)){
+      guild = await guild.fetch();
+      member = guild.members.find((m) => m.user.tag === search);
+      if(member) return member;
+  }
+  member = await guild.members.fetch(search).catch(() => {});
+  return member;
+}
+
 // module.exports.getRole = async function(search, guild){
 //
 // }
