@@ -5,7 +5,6 @@ module.exports = {
     name: "ping",
     description: "Get the currently latency of the bot",
     usage: "ping",
-    category: "General",
     enabled: true,
     guildOnly: true,
     aliases: [],
@@ -16,7 +15,7 @@ module.exports = {
     ownerOnly: false,
 
     async execute(client, message, args) {
-
+      //Check the latency of the bot (Really doesn't mean anything)
       message.channel.send(`Pinging....`).then((m) => {
         let latencyPing =Math.floor( m.createdTimestamp - message.createdTimestamp)
           m.delete()

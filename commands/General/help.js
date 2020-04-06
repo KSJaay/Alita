@@ -6,7 +6,6 @@ module.exports = {
       name: "help",
       description: "Get a list of the commands the bot offers",
       usage: "help [Command]",
-      category: "General",
       enabled: true,
       guildOnly: true,
       aliases: [],
@@ -17,7 +16,7 @@ module.exports = {
       ownerOnly: false,
 
     async execute(client, message, args) {
-
+            //Return all the commands
             let infoEmbed = await tools.MapCats(client)
             return message.channel.send(infoEmbed);
 

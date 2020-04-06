@@ -6,7 +6,6 @@ module.exports = {
     name: "userinfo",
     description: "Find information about your profile or a user in your server",
     usage: "userinfo",
-    category: "General",
     enabled: true,
     guildOnly: true,
     aliases: ["ui"],
@@ -16,13 +15,14 @@ module.exports = {
     cooldown: 5000,
     ownerOnly: false,
     async execute(client, message, args) {
-
+      //Get the users info
       let user = message.author;
       let userID = user.id;
       let userName = user.tag;
       let joinedDate = user.createdAt;
       let userStatus = user.presence.status;
 
+      //If the user is in the guild get their guild info
       let member = null;
       if(message.guild){
           member = await message.guild.members.fetch(user).catch((err) => {});
@@ -31,8 +31,8 @@ module.exports = {
       let memberColor = member.displayHexColor;
       let memberHRole = member.roles.highest;
       let memberJoined = member.joinedAt;
-      //console.log(member)
 
+      //Create the embed and add information to it
       let announcementEmbed = new Discord.MessageEmbed()
       .setAuthor(user.username, user.displayAvatarURL())
       .setThumbnail(user.displayAvatarURL())
@@ -48,6 +48,7 @@ module.exports = {
         { name: 'Status', value: memberColor, inline: true },
       )
 
+      //Add the users status
        if(userStatus === "dnd"){
          announcementEmbed.addFields({ name: 'Status', value: ":red_circle: Do not disturb", inline: true })
        }else if(userStatus === "idle"){
@@ -57,6 +58,7 @@ module.exports = {
        }else if(userStatus === "offline"){
            announcementEmbed.addFields({ name: 'Status', value: ":white_circle: Offline", inline: true })
        }else{
+          announcementEmbed.addFields({ name: 'Status', value: "Unknown", inline: true })
        }
 
       return message.channel.send(announcementEmbed)
