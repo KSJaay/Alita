@@ -14,7 +14,7 @@ Also let us know what features you'd like to see us add in the future.
 
 # Alita commands
 
-## General
+### General
 | Command | Description |
 | --- | --- |
 | `Botstats` | Show information about the bot |
@@ -22,13 +22,13 @@ Also let us know what features you'd like to see us add in the future.
 | `Ping` | Get the currently latency of the bot |
 | `Userinfo` | Find information about your profile or a user in your server |
 
-## Games
+### Games
 | Command | Description |
 | --- | --- |
 | `Eightball` | Let eightball answer your questions |
 | `RPS` | Play a game of rock-paper-scissors |
 
-## Stats
+### Stats
 | Command | Description |
 | --- | --- |
 | `Apex` | Apex Stats for a user |
