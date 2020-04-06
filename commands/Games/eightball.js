@@ -5,7 +5,6 @@ module.exports = {
     name: "eightball",
     description: "Let eightball answer your questions",
     usage: "-eightball {question}",
-    category: "Games",
     enabled: true,
     guildOnly: true,
     aliases: ["8ball"],
@@ -17,6 +16,7 @@ module.exports = {
 
     async execute(client, message, args) {
 
+      //Replies for eightball
       var options = [
         "It is certain",
         "It is decidedly so",
@@ -40,21 +40,28 @@ module.exports = {
         "Concentrate and ask again"
       ];
 
+      //Choose a random reply
       const answers = options[Math.floor(Math.random() * options.length)];
+      //Get the users question
       const question = message.content.split(' ').slice(1);
+
+      //If there's no question then return error message
       if(!question || !args[0]){
         return message.channel.send("Please ask a valid question.")
       }
+      //If the message length is longer than 1024 character return
       if(question.length > 1024){
         return message.channel.send("Question length is too long, make sure it's shorter than 1024 Characters.\nCurrent characters: " + question.length)
       }
 
+      //Create an embed with question and answer
       const embed = new Discord.MessageEmbed()
       .addField("Question", question.join(' '))
       .addField( "Answer", answers)
       .setColor('#fffffe')
       .setAuthor(message.author.tag, message.author.displayAvatarURL());
 
+      //Reply with the answer
       return message.channel.send(embed)
 
 
