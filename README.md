@@ -12,9 +12,9 @@ If you need any help check out our support server and we'll be happy to help you
 Join our support server for any help you need with the code [Click Here.](https://discord.gg/mRqjPTp)
 Also let us know what features you'd like to see us add in the future.
 
-#Alita commands
+# Alita commands
 
-##General
+## General
 | Command | Description |
 | --- | --- |
 | `Botstats` | Show information about the bot |
@@ -22,19 +22,19 @@ Also let us know what features you'd like to see us add in the future.
 | `Ping` | Get the currently latency of the bot |
 | `Userinfo` | Find information about your profile or a user in your server |
 
-##Games
+## Games
 | Command | Description |
 | --- | --- |
 | `Eightball` | Let eightball answer your questions |
 | `RPS` | Play a game of rock-paper-scissors |
 
-##Stats
+## Stats
 | Command | Description |
 | --- | --- |
 | `Apex` | Apex Stats for a user |
 | `Fortnite` | Fortnite Stats for a user |
 
-#Future Commands
+# Future Commands
 [] Games Stats (Fortnite, Apex, R6? etc...)
 [] Memes/Images (Get from randomPuppy)
 [] Random Games (RPS)
