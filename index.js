@@ -16,7 +16,8 @@ client.data = require("./modules/MongoDB.js");
 client.events = new Discord.Collection();
 // Command Handler
 client.commands = new Discord.Collection();
-
+// Add all categoies to Array
+client.categories = [];
 async function init(){
 
 const eventFiles = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));

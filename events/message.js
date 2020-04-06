@@ -1,12 +1,9 @@
 const Discord = require("discord.js");
 const { prefix, ownerID } = require("../config.json");
-const embed = require("../modules/Embeds");
+const embeds = require("../modules/Embeds.js");
 const cmdCooldown = {};
 
 module.exports = (client, message) => {
-    // EMBED
-    const embed = new Discord.MessageEmbed()
-        .setColor("GREEN");
 
     // CHECKS
     if (message.author.bot) return;
@@ -16,50 +13,92 @@ module.exports = (client, message) => {
     const commandName = args.shift().toLowerCase();
 
     //Find the command and it's aliases
-    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+    const cmd = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
     //Return if it isn't a command
-    if (!command) return;
+    if (!cmd) return;
 
     //Return if command is ran in dms
-    if (command.guildOnly) {
-        if (message.channel.type === "dm") return embed.Error();
+    if (cmd.guildOnly) {
+        if (message.channel.type === "dm") return embeds.Error();
     }
 
     //Return if command isn't enabled
-    if(!command.enabled){
+    if(!cmd.enabled){
       return;
     }
 
     //If channel isn't nsfw and command is return error
-    if(!message.channel.nsfw && command.nsfw){
-      return embed.NSFW();
+    if(!message.channel.nsfw && cmd.nsfw){
+      return embeds.nsfw(message);
     }
     //If command is owner only and author isn't owner return
-    if(command.ownerOnly && message.author.id !== ownerID){
+    if(cmd.ownerOnly && message.author.id !== ownerID){
       return;
     }
 
+    //Check if user has permissions to run the command
+    if(message.guild){
+      let neededPerms = [];
+      if(!message.channel.permissionsFor(message.member).has("SEND_MESSAGES")){
+          neededPerms.push("SEND_MESSAGES");
+      }
 
+      cmd.botPermissions.forEach((perm) => {
+      if(!message.channel.permissionsFor(message.member).has(perm)){
+          neededPerms.push(perm);
+        }
+      });
+
+      if(neededPerms.length > 0){
+          return message.channel.send("Looks like you're missing the following permissions:\n" +neededPerms.map((p) => `\`${p}\``).join(", "));
+      }
+
+    }
+    //Check if bot has permissions to run the command
+    if(message.guild){
+      let neededPerms = [];
+
+      if(!message.channel.permissionsFor(message.member).has("SEND_MESSAGES")){
+          neededPerms.push("SEND_MESSAGES");
+      }
+
+      if(!message.channel.permissionsFor(message.member).has("EMBED_LINKS")){
+          neededPerms.push("EMBED_LINKS");
+      }
+
+      cmd.botPermissions.forEach((perm) => {
+      if(!message.channel.permissionsFor(message.guild.me).has(perm)){
+          neededPerms.push(perm);
+          }
+      });
+
+      if(neededPerms.length > 0){
+          return message.channel.send("Looks like I'm missing the following permissions:\n" +neededPerms.map((p) => `\`${p}\``).join(", "));
+      }
+
+    }
+
+    //Try to execute the commands and add cooldown for user
     try {
-        command.execute(client, message, args);
+        cmd.execute(client, message, args);
 
         let userCooldown = cmdCooldown[message.author.id];
         if(!userCooldown){
             cmdCooldown[message.author.id] = {};
             userCooldown = cmdCooldown[message.author.id];
         }
-        let time = userCooldown[command.name] || 0;
+        let time = userCooldown[cmd.name] || 3000;
         if(time && (time > Date.now())){
           let timeLeft = Math.ceil((time-Date.now())/1000);
-            return message.channel.send(embed.Cooldown(timeLeft));
+            return embeds.Cooldown(message, timeLeft);
         }
-        cmdCooldown[message.author.id][command.name] = Date.now() + command.cooldown;
+        cmdCooldown[message.author.id][cmd.name] = Date.now() + cmd.cooldown;
 
         client.logger.cmd(`${message.author.tag} used ${commandName}`);
     }
-    catch (e) {
-        console.error(e);
-        client.errors.cmdError(message);
+    //If an error occurs catch it and console log it
+    catch (err) {
+        console.error(err);
     }
 };
