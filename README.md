@@ -3,9 +3,6 @@
 # AlitaBot
 A simple bot created to show the possibilities of coding using Discord.js API to create features. Will be getting more Advance over time. Alita will have all features except economy and minigames, this is because we already have a bot which does. [Click Here.](https://top.gg/bot/610459754258759680)
 
-## Features of Alita
-We wanted to create a bot which can basically do anything you want it to do (kinda). Discord has some restrictions so we won't be able to create everything we wanted to :). But we want to add a ton of features that will be helpful in your server. This bot is also created so you guys can learn more about discord.js and how to use it.
-
 ## Installation guide
 For more information on how to get the bot up and running check out our [Installation guide](https://ksjaay.gitbook.io/alitabot/)
 
