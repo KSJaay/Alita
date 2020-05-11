@@ -15,7 +15,7 @@ module.exports = {
     cooldown: 5000,
     ownerOnly: false,
 
-    async execute(client, message, args) {
+    async execute(client, message, args, data) {
 
       //Get all the data for the bot
       let uptime = convertMS(message.client.uptime);

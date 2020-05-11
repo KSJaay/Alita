@@ -17,6 +17,8 @@ module.exports.MapCats = async function(client){
       }
     });
     embed.setFooter(`You can do -ahelp [command] to see aditional info!`);
-      return embed;
+    return embed;
+
+
 
 };

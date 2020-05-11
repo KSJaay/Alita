@@ -14,6 +14,11 @@ Also let us know what features you'd like to see us add in the future.
 
 # Alita commands
 
+### Admin
+| Command | Description |
+| --- | --- |
+| `Prefix` | Set the prefix for the guild |
+
 ### General
 | Command | Description |
 | --- | --- |

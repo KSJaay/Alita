@@ -14,7 +14,7 @@ module.exports = {
     nsfw: false,
     cooldown: 5000,
     ownerOnly: false,
-    async execute(client, message, args) {
+    async execute(client, message, args, data) {
       //Get the users info
       let user = message.author;
       let userID = user.id;
@@ -45,7 +45,6 @@ module.exports = {
         { name: 'Member color', value: memberColor, inline: true },
         { name: 'Highest role', value: member.roles.highest, inline: true },
         { name: 'Total roles', value: member.roles.cache.size, inline: true },
-        { name: 'Status', value: memberColor, inline: true },
       )
 
       //Add the users status

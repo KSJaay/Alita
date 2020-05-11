@@ -16,7 +16,7 @@ module.exports = {
       cooldown: 5000,
       ownerOnly: false,
 
-    async execute(client, message, args) {
+    async execute(client, message, args, data) {
 
       //Check if there's an API key in config
       if(!config.trackergg || config.trackergg.length === ""){

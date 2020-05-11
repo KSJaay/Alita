@@ -15,7 +15,7 @@ module.exports = {
     cooldown: 5000,
     ownerOnly: false,
 
-    async execute(client, message, args) {
+    async execute(client, message, args, data) {
 
       //Set up your own custom emotes for Rock,Paper and Scissors
 

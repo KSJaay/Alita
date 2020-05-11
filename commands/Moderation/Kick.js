@@ -14,7 +14,7 @@ module.exports = {
       cooldown: 5000,
       ownerOnly: false,
 
-    async execute(client, message, args) {
+    async execute(client, message, args, data) {
       //Get the member
       let member = await resolve.getMember(args[0], message.guild);
       //Check if member exist

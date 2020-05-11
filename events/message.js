@@ -1,20 +1,28 @@
 const Discord = require("discord.js");
-const { prefix, ownerID } = require("../config.json");
+const config = require("../config.json");
 const embeds = require("../modules/Embeds.js");
 const cmdCooldown = {};
 
-module.exports = (client, message) => {
+module.exports = async (client, message) => {
+
+    let guildData = await client.data.getGuildDB(message.guild.id);
+    let userData = await client.data.getUserDB(message.author.id);
 
     // CHECKS
     if (message.author.bot) return;
-    if (message.content.indexOf(prefix) !== 0) return;
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    if (message.content.indexOf(guildData.prefix) !== 0) return;
+    const args = message.content.slice(guildData.prefix.length).trim().split(/ +/g);
 
     const commandName = args.shift().toLowerCase();
 
     //Find the command and it's aliases
     const cmd = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
+    let data = {};
+
+    data.user = userData;
+    data.guild = guildData;
+    data.config = config;
     //Return if it isn't a command
     if (!cmd) return;
 
@@ -33,7 +41,7 @@ module.exports = (client, message) => {
       return embeds.nsfw(message);
     }
     //If command is owner only and author isn't owner return
-    if(cmd.ownerOnly && message.author.id !== ownerID){
+    if(cmd.ownerOnly && message.author.id !== config.ownerID){
       return;
     }
 
@@ -77,23 +85,23 @@ module.exports = (client, message) => {
           return message.channel.send("Looks like I'm missing the following permissions:\n" +neededPerms.map((p) => `\`${p}\``).join(", "));
       }
 
+      let userCooldown = cmdCooldown[message.author.id];
+      if(!userCooldown){
+          cmdCooldown[message.author.id] = {};
+          userCooldown = cmdCooldown[message.author.id];
+      }
+      let time = userCooldown[cmd.name] || 3000;
+      if(time && (time > Date.now())){
+        let timeLeft = Math.ceil((time-Date.now())/1000);
+          return embeds.Cooldown(message, timeLeft);
+      }
+      cmdCooldown[message.author.id][cmd.name] = Date.now() + cmd.cooldown;
+
     }
 
     //Try to execute the commands and add cooldown for user
     try {
-        cmd.execute(client, message, args);
-
-        let userCooldown = cmdCooldown[message.author.id];
-        if(!userCooldown){
-            cmdCooldown[message.author.id] = {};
-            userCooldown = cmdCooldown[message.author.id];
-        }
-        let time = userCooldown[cmd.name] || 3000;
-        if(time && (time > Date.now())){
-          let timeLeft = Math.ceil((time-Date.now())/1000);
-            return embeds.Cooldown(message, timeLeft);
-        }
-        cmdCooldown[message.author.id][cmd.name] = Date.now() + cmd.cooldown;
+        cmd.execute(client, message, args, data);
 
         client.logger.cmd(`${message.author.tag} used ${commandName}`);
     }

@@ -13,5 +13,8 @@ module.exports = mongoose.model("Guild", new Schema({
     /* CONFIGURATION */
     prefix: { type: String, default: config.prefix },
 
+    number: { type: Number, default: 1 }, // Registered date of the member
+
+
 
 }));

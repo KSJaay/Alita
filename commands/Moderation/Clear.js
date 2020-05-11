@@ -15,7 +15,7 @@ module.exports = {
       cooldown: 5000,
       ownerOnly: false,
 
-    async execute(client, message, args) {
+    async execute(client, message, args, data) {
 
       let toClear = parseInt(args[0]) + 1;
       if(isNaN(toClear) || !args[0]){

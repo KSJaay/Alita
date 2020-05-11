@@ -1,24 +1,26 @@
 const Discord = require("discord.js");
-const tools = require("../../modules/Tools.js");
+const fetch = require('node-fetch');
 
 module.exports = {
       //Command Information
-      name: "help",
-      description: "Get a list of the commands the bot offers",
-      usage: "help [Command]",
+      name: "advice",
+      description: "",
+      usage: "",
       enabled: true,
       guildOnly: true,
       aliases: [],
       memberPermissions: [],
       botPermissions: [],
       nsfw: false,
-      cooldown: 0,
+      cooldown: 5000,
       ownerOnly: false,
 
     async execute(client, message, args, data) {
 
-            let infoEmbed = await tools.MapCats(client)
-            return message.channel.send(infoEmbed);
+      let infoWeb = await fetch('http://api.adviceslip.com/advice')
+      let advice = await infoWeb.json();
+
+      return message.channel.send(advice.slip.advice)
 
     },
 };

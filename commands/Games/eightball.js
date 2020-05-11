@@ -14,7 +14,7 @@ module.exports = {
     cooldown: 3000,
     ownerOnly: false,
 
-    async execute(client, message, args) {
+    async execute(client, message, args, data) {
 
       //Replies for eightball
       var options = [

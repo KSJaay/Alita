@@ -14,7 +14,7 @@ module.exports = {
     cooldown: 5000,
     ownerOnly: false,
 
-    async execute(client, message, args) {
+    async execute(client, message, args, data) {
       //Check the latency of the bot (Really doesn't mean anything)
       message.channel.send(`Pinging....`).then((m) => {
         let latencyPing =Math.floor( m.createdTimestamp - message.createdTimestamp)
