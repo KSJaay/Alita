@@ -19,6 +19,22 @@ Also let us know what features you'd like to see us add in the future.
 | --- | --- |
 | `Prefix` | Set the prefix for the guild |
 
+### Fun
+| Command | Description |
+| --- | --- |
+| `Advice` | Let the wise bot give you advice |
+| `Ascii` | Turn your text into ascii |
+| `Cat` | Get a picture of a cat |
+| `Dog` | Get a picture of a dog |
+| `Flip` | Return your text but reversed |
+| `Spongebob` | Spongebob meme your text |
+
+### Games
+| Command | Description |
+| --- | --- |
+| `Eightball` | Let eightball answer your questions |
+| `RPS` | Play a game of rock-paper-scissors |
+
 ### General
 | Command | Description |
 | --- | --- |
@@ -27,11 +43,22 @@ Also let us know what features you'd like to see us add in the future.
 | `Ping` | Get the currently latency of the bot |
 | `Userinfo` | Find information about your profile or a user in your server |
 
-### Games
+### Memes
 | Command | Description |
 | --- | --- |
-| `Eightball` | Let eightball answer your questions |
-| `RPS` | Play a game of rock-paper-scissors |
+| `4chan` | Get your daily dose of 4chan |
+| `Chucknorris` | Get your daily dose of chucknorris|
+| `Comics` | Get your daily dose of comics |
+| `Copypasta` | Get your daily dose of copypasta |
+| `DiscordMemes` | Get your daily dose of discordmemes |
+| `FacePalm` | Get your daily dose of facepalm |
+| `Joke` | Get your daily dose of joke |
+| `Meirl` | Get your daily dose of meirl |
+| `Memes` | Get your daily dose of memes |
+| `Prequel` | Get your daily dose of prequel |
+| `sequel` | Get your daily dose of sequel |
+| `Surreal` | Get your daily dose of surreal |
+| `Wholesome` | Get your daily dose of wholesome |
 
 ### Moderation
 | Command | Description |
