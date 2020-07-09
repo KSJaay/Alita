@@ -25,11 +25,13 @@ module.exports = {
             //Create a new ApexTab using the API key
             let apexStats = new ApexTab(config.trackergg);
 
+
+
             //Get the platform the user entered
-            let platform = args[0].toUpperCase();
+            let platform = args[0] ? args[0].toUpperCase() : "PC";
 
             //If the platform isn't the following then return error message
-            if(!platform || (platform != "PC" && platform != "XBOX" && platform != "PSN")){
+            if((platform != "PC" && platform != "XBOX" && platform != "PSN")){
                 return message.channel.send("Please mention a valid platform (PC, XBOX or PSN)");
             }
 
