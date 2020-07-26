@@ -1,7 +1,7 @@
-[![Alita Dark Logo](https://cdn.discordapp.com/attachments/455063175277051934/679113277099474954/banner.PNG)](https://Alitabot.me 'Alita Bot')
+[![Alita Dark Logo](https://cdn.discordapp.com/attachments/455063175277051934/679113277099474954/banner.PNG)](https://Valorantbot.xyz 'KSJaay')
 
 # AlitaBot
-A simple bot created to show the possibilities of coding using Discord.js API to create features. Will be getting more Advance over time. Alita will have all features except economy and minigames, this is because we already have a bot which does. [Click Here.](https://top.gg/bot/610459754258759680)
+A simple bot created to show the possibilities of coding using Discord.js API to create features. Will be getting more Advance over time.
 
 ## Installation guide
 For more information on how to get the bot up and running check out our [Installation guide](https://ksjaay.gitbook.io/alitabot/)
@@ -9,7 +9,7 @@ For more information on how to get the bot up and running check out our [Install
 ## Support Server
 If you need any help check out our support server and we'll be happy to help you. But please **DO NOT PING OUR SUPPORT TEAM** they don't know much about the code so they won't be able to help you.
 
-Join our support server for any help you need with the code [Click Here.](https://discord.gg/mRqjPTp)
+Join our support server for any help you need with the code [Click Here.](https://discord.gg/u23va6C)
 Also let us know what features you'd like to see us add in the future.
 
 # Alita commands
