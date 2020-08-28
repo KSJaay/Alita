@@ -1,9 +1,10 @@
 {
   "name": "alita",
   "version": "1.0.0",
-  "description": "An open source bot using discord.js, will include some random features for your faces",
+  "description": "Alita bot is a open source Discord.js bot with a wide range of features.",
   "main": "Alita.js",
   "dependencies": {
+    "amazejs": "^1.0.5",
     "apexlegendsjs": "^1.2.1",
     "axios": "^0.19.2",
     "canvas": "^2.6.1",
@@ -16,8 +17,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.9.7",
     "node-fetch": "^2.6.0",
-    "random-puppy": "^1.1.0",
-    "valorant": "0.0.1"
+    "random-puppy": "^1.1.0"
   },
   "devDependencies": {},
   "scripts": {

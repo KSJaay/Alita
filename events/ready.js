@@ -1,11 +1,22 @@
-const { prefix } = require("../config.json");
+const fetchArticles = require("./../Modules/API/News/Fetch.js"),
+checkArticles = require("./../Modules/API/News/Check.js"),
+languages = require('./../Modules/LoadLanguage.js');
 
-const chalk = require("chalk");
+module.exports = async(client) => {
+try {
 
-module.exports = async (client) => {
-    try {
-        client.logger.ready(`${client.user.tag} is now up and running!`);
-    } catch (e) {
-        console.log(e);
-    }
+  client.user.setPresence({ activity: { name: 'for v!help', type: "WATCHING" }, status: "online" });
+  client.logger.ready(`${client.user.tag} is now up and running!`);
+  await languages(client)
+  // await checkArticles(client)
+  // if(client.shard.ids[0] === 0){
+  //
+  //   fetchArticles(client)
+  //
+  // }
+
+} catch (e) {
+    console.log(e);
+}
+
 };

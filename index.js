@@ -1,25 +1,19 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
-
 const config = require("./config.json"),
 fs = require("fs"),
 util = require("util"),
 readdir = util.promisify(fs.readdir),
 mongoose = require("mongoose");
 
-client.logger = require("./modules/Logger.js");
-client.errors = require("./modules/Embeds.js");
-client.tools = require("./modules/Tools.js");
-client.data = require("./modules/MongoDB.js");
-
-// Event Handler
 client.events = new Discord.Collection();
-// Command Handler
 client.commands = new Discord.Collection();
-// Add all categoies to Array
-client.categories = [];
-async function init(){
+client.data = require("./database/MongoDB.js");
+client.logger = require("./Modules/Logger.js");
+client.tools = require("./Modules/Tools.js")
 
+async function startUp(){
+
+//Starting all events
 const eventFiles = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
     const event = require(`./events/${file}`);
@@ -28,6 +22,7 @@ for (const file of eventFiles) {
     client.on(eventName, event.bind(null, client));
 }
 
+//Load all the commands
 let folders = await readdir("./commands/");
 folders.forEach(direct =>{
   const commandFiles = fs.readdirSync('./commands/' + direct + "/").filter(file => file.endsWith('.js'));
@@ -37,15 +32,30 @@ folders.forEach(direct =>{
   }
   })
 
-  // connect to mongoose database
-  mongoose.connect(config.mongoDB, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-      client.logger.log("Connected to the Mongodb database.", "log");
+  //Connect to mongoose database
+  mongoose.connect(config.mongoDB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }).then(() => {
+    //If it connects log the following
+    client.logger.log("Connected to the Mongodb database.", "log");
   }).catch((err) => {
-      client.logger.log("Unable to connect to the Mongodb database. Error:"+err, "error");
+    //If it doesn't connect log the following
+    client.logger.log("Unable to connect to the Mongodb database. Error:"+err, "error");
   });
-
-
+  client.login(config.token)
 }
 
-init();
-client.login(config.token);
+startUp();
+
+
+// if there are errors, log them
+client.on("disconnect", () => client.logger.log("Bot is disconnecting...", "warn"))
+    .on("reconnecting", () => client.logger.log("Bot reconnecting...", "log"))
+    .on("error", (e) => client.logger.log(e, "error"))
+    .on("warn", (info) => client.logger.log(info, "warn"));
+
+//For any unhandled errors
+process.on("unhandledRejection", (err) => {
+  console.error(err);
+});
