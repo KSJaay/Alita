@@ -40,6 +40,7 @@ try {
   data.config = config;
   data.user = userDB;
   data.guild = guildDB;
+  data.cmd = cmd;
 
 
   //If channel isn't nsfw and command is return error
