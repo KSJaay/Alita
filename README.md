@@ -19,12 +19,12 @@ Also let us know what features you'd like to see us add in the future.
 
 # Current Commands
 
-## Admin
+### Admin
 |Name| Description |
 |-----------|---------------------------------|
 | Setprefix | Set the prefix for your servers |
 
-## General
+### General
 |Name| Description |
 |----------|----------------------------------|
 | Botstats | Get the current stats of the bot |
