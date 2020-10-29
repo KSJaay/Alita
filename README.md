@@ -11,13 +11,13 @@ A simple bot created to show the possibilities of coding using Discord.js API to
 
 For more information on how to get the bot up and running check out our [Installation guide](https://ksjaay.gitbook.io/alitabot/)
 
-## Support Server
+## 📞Support Server
 If you need any help check out our support server and we'll be happy to help you. But please **DO NOT PING OUR SUPPORT TEAM** they don't know much about the code so they won't be able to help you.
 
 Join our support server for any help you need with the code [Click Here.](https://discord.gg/ahcFREu)
 Also let us know what features you'd like to see us add in the future.
 
-# Current Commands
+## 🗊Current Commands
 
 ### Admin
 |Name| Description |
@@ -30,7 +30,7 @@ Also let us know what features you'd like to see us add in the future.
 | Botstats | Get the current stats of the bot |
 |   Ping   | Displays the current API latency |
 
-# Ideas and Commands
+## 📝Ideas and Commands
 **Name:** The name of the command
 **Progress:**
  - ❌: Not started yet
@@ -38,7 +38,7 @@ Also let us know what features you'd like to see us add in the future.
  - ✔: Finished
  - 💯: Prioritising before everything else
 
-## Admin
+### Admin
  | Name          | Progress |
  |---------------|----------|
  | Addcommand    |    ❌    |
@@ -52,12 +52,12 @@ Also let us know what features you'd like to see us add in the future.
  | Setlogs       |    ❌    |
  | Welcome       |    ❌    |
 
-## Custom embeds
+### Custom embeds
  | Name   | Progress |
  |--------|----------|
  | Embeds |    ❌    |
 
-## General
+### General
  | Name       | Progress |
  |------------|----------|
  | Avatar     |    ❌    |
@@ -72,13 +72,13 @@ Also let us know what features you'd like to see us add in the future.
  | Staff      |    ❌    |
  | Userinfo   |    ❌    |
 
-## Games
+### Games
 | Name      | Progress |
 |-----------|----------|
 | Eightball |    ❌    |
 | RPS       |    ❌    |
 
-## Game statistics
+### Game statistics
 |    Name      | Progress |
 |--------------|----------|
 | Fortnite     |    ❌    |
@@ -90,14 +90,14 @@ Also let us know what features you'd like to see us add in the future.
 | Minecraft    |    ❌    |
 
 
-## Memes
+### Memes
 | Name   | Progress |
 |--------|----------|
 | Reddit |    ❌    |
 
 Add a bunch of different sub reddits
 
-## Moderation
+### Moderation
 | Name       | Progress |
 |------------|----------|
 | Ban        |    ❌    |
@@ -110,7 +110,7 @@ Add a bunch of different sub reddits
 | Unban      |    ❌    |
 | CurrentBans|    ❌    |
 
-## Social media Statistics
+### Social media Statistics
 | Name      | Progress |
 |-----------|----------|
 | Instagram |    ❌    |
@@ -118,7 +118,7 @@ Add a bunch of different sub reddits
 | Twitch    |    ❌    |
 | Youtube   |    ❌    |
 
-## Random commands
+### Random commands
 |Name| Progress |
 |----|----------|
 ||    ❌    |
