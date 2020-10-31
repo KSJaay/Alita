@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
     //Command Information
     name: "help",
-    description: "Get the list of commands Alita offers.",
+    description: "Get the list of commands Alita offers",
     usage: "help\nhelp [command]",
     enabled: true,
     aliases: [],

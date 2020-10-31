@@ -4,7 +4,7 @@ fetch = require('node-fetch');
 module.exports = {
     //Command Information
     name: "github",
-    description: "Get information about a github repository",
+    description: "Get information about a Github repository",
     usage: "github [user] [repository]",
     enabled: true,
     aliases: [],
