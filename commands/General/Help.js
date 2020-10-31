@@ -6,7 +6,7 @@ module.exports = {
     description: "Get the list of commands Alita offers.",
     usage: "help\nhelp [command]",
     enabled: true,
-    aliases: ["stats"],
+    aliases: [],
     category: "General",
     memberPermissions: [],
     botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
@@ -16,15 +16,18 @@ module.exports = {
 
     async execute(client, message, args, data) {
 
+      // If no argument then return command list
       if(!args[0]){
         return client.tools.fetchCmdList(client, message, data)
       }else{
+        // Find the command from list
         let cmd = await client.commands.get(args[0].toLowerCase())
-
+        // If command doesn't exist return error
         if(!cmd){
-          return message.channel.send("Unable to find the command: " + args[0])
+          return message.channel.send(`Unable to find the command: \`${args[0]}\``)
         }
 
+        // If command exists return command information in embed
         let embed = new Discord.MessageEmbed()
         .setTitle(cmd.name)
         .setDescription(`**Description:** ${cmd.description}\n**Usage:** \`\`\`${cmd.usage}\`\`\`\n**Cooldown:** ${cmd.cooldown/1000} seconds`)

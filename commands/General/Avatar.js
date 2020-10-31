@@ -6,7 +6,7 @@ module.exports = {
     description: "Get the link for the users Avatar",
     usage: "Avatar @user",
     enabled: true,
-    aliases: ["stats"],
+    aliases: [],
     category: "General",
     memberPermissions: [],
     botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
@@ -16,7 +16,11 @@ module.exports = {
 
     async execute(client, message, args, data) {
 
+        // Check for mentioned users
+        // If no member is mentioned then use message author else find member from guild
         let user = !args[0] ? message.author : await findMember(args[0], message.guild)
+
+        // Create embed and send user the avatar with links
         let embed = new Discord.MessageEmbed()
         .setTitle(`Avatar for ${user.tag}`)
         .addField("Links as", `[png](${user.displayAvatarURL()}.png?size=1024]) | [jpg](${user.displayAvatarURL()}.jpg?size=1024) | [webp](${user.displayAvatarURL()}.webp?size=1024)`)
@@ -44,6 +48,10 @@ module.exports = {
           }
           // Try to find the user itself
           member = await guild.members.cache.get(query);
+          // If member doesn't exist return as message.author
+          if(!member){
+            return message.author
+          }
           return member.user;
         }
 

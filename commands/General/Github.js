@@ -7,7 +7,7 @@ module.exports = {
     description: "Get information about a github repository",
     usage: "github [user] [repository]",
     enabled: true,
-    aliases: ["stats"],
+    aliases: [],
     category: "General",
     memberPermissions: [],
     botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
@@ -16,12 +16,15 @@ module.exports = {
     ownerOnly: false,
 
     async execute(client, message, args, data) {
-
+      // Check for username and repository name
+      // If they don't exist set defualt to KSJaay/Alita
       let user = !args[0] ? "KSJaay" : args[0];
       let repo = !args[1] ? "Alita" : args[1];
 
+      // Fetch repository from github API
       let uri = await fetch(`https://api.github.com/repos/${user}/${repo}`);
 
+      // Check the fetch status, if it's 200 then return embed with information
       if(uri.status === 200){
         let uriJson = await uri.json();
         let embed = new Discord.MessageEmbed()
@@ -36,6 +39,7 @@ module.exports = {
         .setFooter(data.config.footer)
         return message.channel.send(embed)
       }else{
+        // If fetch status isn't 200 then return error
         return message.channel.send("Unable to find the mentioned repository. Please make sure you have entered the correct user/repository. `a!github [user] [repository]`")
       }
 
