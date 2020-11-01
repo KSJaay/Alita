@@ -31,7 +31,7 @@ Also let us know what features you'd like to see us add in the future.
 | Botstats   | Get the current stats of the bot          |
 | Github     | Get information about a Github repository |
 | Help       | Get the list of commands Alita offers     |
-|   Ping     | Displays the current API latency          |
+| Ping       | Displays the current API latency          |
 | Roles      | Get a list of all the roles               |
 | ServerInfo | Get information about the server          |
 
