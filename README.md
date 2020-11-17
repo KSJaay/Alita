@@ -54,7 +54,6 @@ Also let us know what features you'd like to see us add in the future.
  | Delcommand    |    ❌    |
  | Goodbye       |    ❌    |
  | Command       |    ❌    |
- | Setprefix     |    ✔     |
  | Setlogs       |    ❌    |
  | Welcome       |    ❌    |
 
@@ -69,8 +68,6 @@ Also let us know what features you'd like to see us add in the future.
  | Calculator |    ❌    |
  | Invite     |    ❌    |
  | Invites    |    ❌    |
- | Staff      |    🕓    |
- | Userinfo   |    🕓    |
 
 ### Games
 | Name      | Progress |
