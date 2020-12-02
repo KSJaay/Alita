@@ -14,7 +14,7 @@ For more information on how to get the bot up and running check out our [Install
 ## 📞Support Server
 If you need any help check out our support server and we'll be happy to help you. But please **DO NOT PING OUR SUPPORT TEAM** they don't know much about the code so they won't be able to help you.
 
-Join our support server for any help you need with the code [Click Here.](https://discord.gg/ahcFREu)
+Join our support server for any help you need with the code [Click Here.](https://discord.gg/3BEnFRRaud)
 Also let us know what features you'd like to see us add in the future.
 
 ## 🗊Current Commands
