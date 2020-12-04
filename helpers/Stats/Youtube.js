@@ -64,7 +64,11 @@ async function fetchVideo(id){
   if(video.status != 200){
     url = `https://youtube.com/c/${id}/videos?flow=grid&view=0&pbj=1`;
     video = await fetch(url, config)
+  }
 
+  if(video.status != 200){
+    url = `https://youtube.com/user/${id}/videos?flow=grid&view=0&pbj=1`;
+    video = await fetch(url, config)
     if(video.status != 200){
       return false;
     }

@@ -41,12 +41,10 @@ module.exports = {
       let channelID = !args[0] ? "ChilledCow" : args[0]
 
       let videoData = await helper.fetchChannel(channelID);
-
       let views = videoData.video.map(x => x.views)
       let time = videoData.video.map(x => x.videoTime)
 
       let totalViews = views.reduce((a, b) => a + b, 0);
-      console.log(totalViews)
       if(videoData === false){
         return message.channel.send("Issue trying to find the requested channel")
       }
