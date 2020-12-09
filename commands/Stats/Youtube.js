@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const helper = require("./../../helpers/Stats/Youtube.js");
-const fetch = require("node-fetch");
 
 const { CanvasRenderService } = require('chartjs-node-canvas');
 
