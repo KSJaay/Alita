@@ -21,6 +21,30 @@ module.exports.resolveMember = async function(query, guild){
 
 };
 
+module.exports.resolveChannel = async function(search, guild){
+  let channel = null;
+  if(!search || typeof search !== "string") return;
+  //Try to search using ID
+  if(search.match(/^#&!?(\d+)$/)){
+      let id = search.match(/^#&!?(\d+)$/)[1];
+      channel = guild.channels.cache.get(id);
+      if(channel) return channel;
+  }
+  //Got fucking lazy so I just removed the <#>
+  if(search.includes("<#")){
+    let firstChannel = search.replace("<#", "");
+    let channelID = firstChannel.replace(">", "");
+    let channel = guild.channels.cache.get(channelID);
+    if(channel) return channel;
+  }
+  //Try to search it using name
+  channel = guild.channels.cache.find((c) => search.toLowerCase() === c.name.toLowerCase());
+  if(channel) return channel;
+  //Try to find the channel itself
+  channel = guild.channels.cache.get(search);
+  return channel;
+};
+
 
 module.exports.fetchCmdList = async function(client, message, data){
   let category = await client.commands.map(x => x.category);

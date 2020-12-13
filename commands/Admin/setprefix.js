@@ -9,12 +9,11 @@ module.exports = {
   enabled: true,
   aliases: ["prefix"],
   category: "Admin",
-  userPermissions: [ "ADMINISTRATOR" ],
+  memberPermissions: [ "ADMINISTRATOR" ],
   botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
   //Settings for command
   nsfw: false,
   ownerOnly: false,
-  donator: false,
   cooldown: 5000,
 
   //Execute to command once the settings have been checked
