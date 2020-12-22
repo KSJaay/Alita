@@ -4,12 +4,14 @@ module.exports.fetchAccount = async function(id){
   let url = `https://www.instagram.com/${id}/?__a=1`
 
   // Get profile information using url
-  let results = await fetch(url).then(x => x.json())
+  let results = await fetch(url)
 
   // If there's no results return false
-  if(!results){
+  if(results.status !== 200){
     return false;
   }
+
+  results = await results.json();
 
   // Get information about the user
   let data = {

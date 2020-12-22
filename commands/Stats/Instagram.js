@@ -20,9 +20,9 @@ module.exports = {
 
       let instaData = await helper.fetchAccount(userID)
 
-      if(instaData === false){
+      if(!instaData){
         return message.channel.send("Unable to find the mentioned Instagram account.")
-      }
+      };
       // Get the top liked image
       let topImage;
       if(instaData.imageData.length > 0){
