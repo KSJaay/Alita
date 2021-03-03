@@ -72,7 +72,7 @@ Also let us know what features you'd like to see us add in the future.
 ### Games
 | Name      | Progress |
 |-----------|----------|
-| Eightball |    ❌    |
+| Eightball |    ✔     |
 | RPS       |    ❌    |
 
 ### Game statistics
