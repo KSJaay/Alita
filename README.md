@@ -89,8 +89,8 @@ Also let us know what features you'd like to see us add in the future.
 
 ### Memes
 | Name   | Progress |
-|--------|----------|
-| Reddit |    ❌    |
+|--------|--------- |
+| Reddit |    ✔     |
 
 Add a bunch of different sub reddits
 
