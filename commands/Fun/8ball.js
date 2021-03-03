@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const customisation = require("../../customisation.json");
 
 module.exports = {
     //Command Information
