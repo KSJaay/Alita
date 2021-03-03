@@ -4,7 +4,7 @@ module.exports = {
 
   //Information about command
   name: "setprefix",
-  desc: "Set the prefix for your server",
+  description: "Set the prefix for your server",
   usage: "setprefix [prefix]",
   enabled: true,
   aliases: ["prefix"],

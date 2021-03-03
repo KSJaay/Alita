@@ -4,7 +4,7 @@ module.exports = {
 
   //Information about command
   name: "goodbye",
-  desc: "When user leaves server send message to channel",
+  description: "When user leaves server send message to channel",
   usage: "goodbye set #channel\ngoodbye custom <text>\ngoodbye disable",
   enabled: true,
   aliases: [],

@@ -4,7 +4,7 @@ module.exports = {
 
   //Information about command
   name: "welcome",
-  desc: "When user joins server send message to channel",
+  description: "When user joins server send message to channel",
   usage: "welcome set #channel\nwelcome custom <text>\nwelcome disable",
   enabled: true,
   aliases: [],
