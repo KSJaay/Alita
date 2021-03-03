@@ -54,7 +54,7 @@ module.exports = {
     .setColor("#AA9900")
     .addField("Q:", question)
     .addField("A:", replies[result])
-    .setFooter(`Shamira Bot by ${customisation.ownername}`);
+    .setFooter(data.config.footer)
 
     message.channel.send({embed});
 }}
