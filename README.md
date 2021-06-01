@@ -11,9 +11,7 @@ A simple bot created to show the possibilities of coding using Discord.js API to
 
 For more information on how to get the bot up and running check out our [Installation guide](https://ksjaay.gitbook.io/alitabot/)
 
-## 📞Support Server
-If you need any help check out our support server and we'll be happy to help you. But please **DO NOT PING OUR SUPPORT TEAM** they don't know much about the code so they won't be able to help you.
-
+## 📞Support
 If you have any issues with the code, please open an issue by [clicking here](https://github.com/KSJaay/Alita/issues)
 
 ## 🗊Current Commands

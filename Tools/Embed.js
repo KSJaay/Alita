@@ -2,9 +2,9 @@ const Discord = require("discord.js"),
 config = require('./../config.json');
 
 module.exports.send = async function(message, embed){
-
     let newEmbed = new Discord.MessageEmbed()
     .setFooter(config.footer)
+    .setColor(config.color)
     embed = {... newEmbed, ... embed}
 
     return message.channel.send({embed: embed});

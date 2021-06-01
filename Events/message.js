@@ -94,7 +94,7 @@ try {
     client.logger.cmd(`${message.author.tag} used ${cmd.name}`);
 
     //Create a new log for the command
-    client.data.createLog(message, data);
+    client.Database.createLog(message, data);
 
     } catch(err) {
         console.error(err);
