@@ -49,10 +49,10 @@ If you have any issues with the code, please open an issue by [clicking here](ht
  | Blacklist     |    ❌    |
  | Configuration |    ❌    |
  | Delcommand    |    ❌    |
- | Goodbye       |    ❌    |
+ | Goodbye       |    ✔     |
  | Command       |    ❌    |
  | Setlogs       |    ❌    |
- | Welcome       |    ❌    |
+ | Welcome       |    ✔     |
 
 ### Custom embeds
  | Name   | Progress |
@@ -111,6 +111,7 @@ Add a bunch of different sub reddits
 | Twitter   |    ❌    |
 | Twitch    |    ✔     |
 | Youtube   |    ❌    |
+| Github    |    ✔     |
 
 ### Random commands
 |Name| Progress |
