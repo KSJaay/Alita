@@ -62,7 +62,7 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 ### General
  | Name       | Progress |
  |------------|----------|
- | Calculator |    ❌    |
+ | Calculator |    ✔     |
  | Invite     |    ❌    |
  | Invites    |    ❌    |
 
@@ -107,9 +107,9 @@ Add a bunch of different sub reddits
 ### Social media Statistics
 | Name      | Progress |
 |-----------|----------|
-| Instagram |    ❌    |
+| Instagram |    ✔     |
 | Twitter   |    ❌    |
-| Twitch    |    ❌    |
+| Twitch    |    ✔     |
 | Youtube   |    ❌    |
 
 ### Random commands
