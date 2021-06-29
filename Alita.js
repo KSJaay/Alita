@@ -37,7 +37,7 @@ async function init(){
     })
 
     // Connect to the database
-    mongoose.connect(config.mongoURI, {
+    mongoose.connect(config.mongoDB, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(() => {
