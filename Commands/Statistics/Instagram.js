@@ -4,7 +4,7 @@ module.exports = {
     name: "instagram",
     usage: ["Get the most popular post from an instagram account```{prefix}instagram <user>```"],
     enabled: true,
-    aliases: [],
+    aliases: ["insta"],
     category: "Stats",
     memberPermissions: [],
     botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],

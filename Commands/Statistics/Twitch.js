@@ -6,10 +6,10 @@ var moment = require("moment")
 api.clientID = "";
 
 module.exports = {
-    name: "ttv",
+    name: "twitch",
     usage: ["Checks the Twitch Profile also ```{prefix}ttv <twitch userr>```"],
     enabled: true,
-    aliases: [],
+    aliases: ["ttv"],
     category: "General",
     memberPermissions: [],
     botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
@@ -20,7 +20,7 @@ module.exports = {
 
     // Execute contains content for the command
     async execute(client, message, args, data){
-            api.search.channels({ query: `${args[0]}`}, (err, res) => {
+      api.search.channels({ query: `${args[0]}`}, (err, res) => {
       if (err) {
         console.log(err);
       } else {
@@ -43,8 +43,7 @@ module.exports = {
             .setColor("#6441a5")
             .setAuthor(`   │   ${final.display_name}`, client.user.displayAvatarURL())
             .setDescription(`${final.description}`)
-            .addField('Latest Stream:', `${final.status}\f
-             Game: \`${final.game}\``)
+            .addField('Latest Stream:', `${final.status}\fGame: \`${final.game}\``)
             .addField('Followers', final.followers.toLocaleString(), true)
             .addField('Views', final.views.toLocaleString(), true)
             .addField('Broadcaster Type', broadcasterType)
@@ -53,7 +52,8 @@ module.exports = {
             .setThumbnail(final.logo)
             .setFooter(`Their URL: ${final.url}`)
 
-            message.channel.send(twitchEmbed)
+            return message.channel.send(twitchEmbed)
       }
     });
-}
+  }
+};
