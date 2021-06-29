@@ -31,15 +31,17 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 | Welcome   | When a user joins the server, send message to channel |
 
 ### General
-| Name       | Description                               |
-|------------|-------------------------------------------|
-| Avatar     | Get the link for the users Avatar         |
-| Botstats   | Get the current stats of the bot          |
-| Github     | Get information about a Github repository |
-| Help       | Get the list of commands Alita offers     |
-| Ping       | Displays the current API latency          |
-| Roles      | Get a list of all the roles               |
-| ServerInfo | Get information about the server          |
+| Name           | Description                               |
+|----------------|-------------------------------------------|
+| Avatar         | Get the link for the users Avatar         |
+| Botstats       | Get the current stats of the bot          |
+| Calculator     | Do basic calculations                     |
+| Github         | Get information about a Github repository |
+| Help           | Get the list of commands Alita offers     |
+| Ping           | Displays the current API latency          |
+| Roles          | Get a list of all the roles               |
+| Serverinfo     | Get information about the server          |
+| userinfo       | Get information about a user              |
 
 ### Images
 | Name  | Description             |
@@ -84,7 +86,6 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 ❌ Call of Duty
 ❌ Minecraft
 
-
 ### Moderation
 ❌ Ban
 ❌ Kick
@@ -99,5 +100,4 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 ### Social media Statistics
 ❌ Instagram
 ❌ Twitter
-❌ Twitch
 ❌ Youtube
