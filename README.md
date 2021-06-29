@@ -1,6 +1,6 @@
 [![Alita Dark Logo](https://cdn.discordapp.com/attachments/455063175277051934/679113277099474954/banner.PNG)](https://Patreon.com/KSJaay 'KSJaay')
 
-# 🤖 AlitaBot (Another Multi-Purpose Discord Bot)
+# AlitaBot (Another Multi-Purpose Discord Bot)
 A simple bot created to show the possibilities of coding using Discord.js API to create features. Will be getting more Advance over time.
 
 ## 🚀 Getting Started
@@ -11,15 +11,24 @@ A simple bot created to show the possibilities of coding using Discord.js API to
 
 For more information on how to get the bot up and running check out our [Installation guide](https://ksjaay.gitbook.io/alitabot/)
 
-## 📞Support
+## Support
 If you have any issues with the code, please open an issue by [clicking here](https://github.com/KSJaay/Alita/issues)
 
-## 🗊Current Commands
+## Current Commands
 
 ### Admin
-|Name| Description |
-|-----------|---------------------------------|
-| Setprefix | Set the prefix for your servers |
+| Name      | Description                                           |
+|-----------|-------------------------------------------------------|
+| Goodbye   | When user leaves server send message to channel       |
+| Setprefix | Set the prefix for your servers                       |
+| Welcome   | When a user joins the server, send message to channel |
+
+### Fun
+| Name      | Description                                           |
+|-----------|-------------------------------------------------------|
+| Goodbye   | When user leaves server send message to channel       |
+| Setprefix | Set the prefix for your servers                       |
+| Welcome   | When a user joins the server, send message to channel |
 
 ### General
 | Name       | Description                               |
@@ -32,8 +41,18 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 | Roles      | Get a list of all the roles               |
 | ServerInfo | Get information about the server          |
 
+### Images
+| Name  | Description             |
+|-------|-------------------------|
+| Dog   | Get cute images of dogs |
 
-## 📝Ideas and Commands
+### Statistics
+| Name        | Description                            |
+|-------------|----------------------------------------|
+| Instagram   | Get statistics about Instagram account |
+
+
+## Ideas and Commands
 **Name:** The name of the command
 **Progress:**
  - ❌: Not started yet
@@ -42,78 +61,43 @@ If you have any issues with the code, please open an issue by [clicking here](ht
  - 💯: Prioritising before everything else
 
 ### Admin
- | Name          | Progress |
- |---------------|----------|
- | Addcommand    |    ❌    |
- | Addemoji      |    ❌    |
- | Blacklist     |    ❌    |
- | Configuration |    ❌    |
- | Delcommand    |    ❌    |
- | Goodbye       |    ✔     |
- | Command       |    ❌    |
- | Setlogs       |    ❌    |
- | Welcome       |    ✔     |
-
-### Custom embeds
- | Name   | Progress |
- |--------|----------|
- | Embeds |    ❌    |
+❌ Addcommand
+❌ Addemoji
+❌ Blacklist
+❌ Configuration 
+❌ Delcommand
+❌ Command
+❌ Setlogs
 
 ### General
- | Name       | Progress |
- |------------|----------|
- | Calculator |    ✔     |
- | Invite     |    ❌    |
- | Invites    |    ❌    |
+❌ Invites
 
 ### Games
-| Name      | Progress |
-|-----------|----------|
-| Eightball |    ✔     |
-| RPS       |    ❌    |
+❌ RPS
 
 ### Game statistics
-|    Name      | Progress |
-|--------------|----------|
-| Fortnite     |    ❌    |
-| Apex Legends |    ❌    |
-| Rainbow Six  |    ❌    |
-| Valorant     |    ❌    |
-| Rocket League|    ❌    |
-| Call of Duty |    ❌    |
-| Minecraft    |    ❌    |
+❌ Fortnite
+❌ Apex Legends
+❌ Rainbow Six
+❌ Valorant
+❌ Rocket League
+❌ Call of Duty
+❌ Minecraft
 
-
-### Memes
-| Name   | Progress |
-|--------|--------- |
-| Reddit |    ✔     |
-
-Add a bunch of different sub reddits
 
 ### Moderation
-| Name       | Progress |
-|------------|----------|
-| Ban        |    ❌    |
-| Kick       |    ❌    |
-| Warn       |    ❌    |
-| Mute       |    ❌    |
-| Warnings   |    ❌    |
-| Clear      |    ❌    |
-| Unmute     |    ❌    |
-| Unban      |    ❌    |
-| CurrentBans|    ❌    |
+❌ Ban
+❌ Kick
+❌ Warn
+❌ Mute
+❌ Warnings
+❌ Clear
+❌ Unmute
+❌ Unban
+❌ CurrentBans
 
 ### Social media Statistics
-| Name      | Progress |
-|-----------|----------|
-| Instagram |    ✔     |
-| Twitter   |    ❌    |
-| Twitch    |    ✔     |
-| Youtube   |    ❌    |
-| Github    |    ✔     |
-
-### Random commands
-|Name| Progress |
-|----|----------|
-||    ❌    |
+❌ Instagram
+❌ Twitter
+❌ Twitch
+❌ Youtube
