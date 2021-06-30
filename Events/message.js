@@ -88,7 +88,7 @@ try {
     data.user = userData;
     data.guild = guildData;
     data.cmd = cmd;
-
+    data.config = config;
     //Execute the command and log the user in console
     cmd.execute(client, message, args, data);
     client.logger.cmd(`${message.author.tag} used ${cmd.name}`);
