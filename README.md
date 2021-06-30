@@ -20,6 +20,7 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 | Name      | Description                                           |
 |-----------|-------------------------------------------------------|
 | Goodbye   | When user leaves server send message to channel       |
+| Invites   | See dates when users joined the server                |
 | Setprefix | Set the prefix for your servers                       |
 | Welcome   | When a user joins the server, send message to channel |
 
@@ -70,9 +71,6 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 ❌ Delcommand
 ❌ Command
 ❌ Setlogs
-
-### General
-❌ Invites
 
 ### Games
 ❌ RPS
