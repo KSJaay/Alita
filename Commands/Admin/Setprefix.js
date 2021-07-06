@@ -21,6 +21,7 @@ module.exports = {
             let prefix = args.join(" ");
             data.guild.prefix = prefix;
             await data.guild.save();
+            message.guild.prefix = prefix.toLowerCase();
             return message.channel.send(`Prefix has been updated to \`${prefix}\``);
 
         }catch(err){
