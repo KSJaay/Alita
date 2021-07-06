@@ -1,7 +1,7 @@
 module.exports = async(client, member) => {
     try {
         let guild = member.guild;
-        let guildData = await client.data.getGuildDB(guild.id); // Get guild document from database
+        let guildData = await client.Database.fetchGuild(guild.id); // Get guild document from database
         if(!guildData.addons.welcome.enabled) return; // Welcome messages aren't enabled
         
         let welcomeChannel = await client.tools.resolveChannel(guildData.addons.welcome.channel, guild); // Try find the welcome channel

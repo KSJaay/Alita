@@ -1,7 +1,7 @@
 module.exports = async(client, member) => {
     try {
         let guild = member.guild;
-        let guildData = await client.data.getGuildDB(guild.id); // Get guild document from database
+        let guildData = await client.Database.fetchGuild(guild.id); // Get guild document from database
         if(!guildData.addons.goodbye.enabled) return; // Goodbye messages aren't enabled
     
         let goodbyeChannel = await client.tools.resolveChannel(guildData.addons.goodbye.channel, guild); // Try find the channel
