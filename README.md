@@ -64,38 +64,37 @@ If you have any issues with the code, please open an issue by [clicking here](ht
  - 💯: Prioritising before everything else
 
 ### Admin
-❌ Addcommand
-❌ Addemoji
-❌ Blacklist
-❌ Configuration 
-❌ Delcommand
-❌ Command
-❌ Setlogs
+- Addcommand
+- Addemoji
+- Blacklist
+- Configuration 
+- Delcommand
+- Command
+- Setlogs
 
 ### Games
-❌ RPS
+- RPS
 
 ### Game statistics
-❌ Fortnite
-❌ Apex Legends
-❌ Rainbow Six
-❌ Valorant
-❌ Rocket League
-❌ Call of Duty
-❌ Minecraft
+- Fortnite
+- Apex Legends
+- Rainbow Six
+- Valorant
+- Rocket League
+- Call of Duty
+- Minecraft
 
 ### Moderation
-❌ Ban
-❌ Kick
-❌ Warn
-❌ Mute
-❌ Warnings
-❌ Clear
-❌ Unmute
-❌ Unban
-❌ CurrentBans
+- Ban
+- Kick
+- Warn
+- Mute
+- Warnings
+- Clear
+- Unmute
+- Unban
+- CurrentBans
 
 ### Social media Statistics
-❌ Instagram
-❌ Twitter
-❌ Youtube
+- Twitter
+- Youtube
