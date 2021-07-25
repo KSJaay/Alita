@@ -17,12 +17,13 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 ## Current Commands
 
 ### Admin
-| Name      | Description                                           |
-|-----------|-------------------------------------------------------|
-| Goodbye   | When user leaves server send message to channel       |
-| Invites   | See dates when users joined the server                |
-| Setprefix | Set the prefix for your servers                       |
-| Welcome   | When a user joins the server, send message to channel |
+| Name            | Description                                           |
+|-----------------|-------------------------------------------------------|
+| Configuration   | Get the current configurations for this server        |
+| Goodbye         | When user leaves server send message to channel       |
+| Invites         | See dates when users joined the server                |
+| Setprefix       | Set the prefix for your servers                       |
+| Welcome         | When a user joins the server, send message to channel |
 
 ### Fun
 | Name      | Description                                           |
@@ -66,8 +67,7 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 ### Admin
 - Addcommand
 - Addemoji
-- Blacklist
-- Configuration 
+- Blacklist 
 - Delcommand
 - Command
 - Setlogs
