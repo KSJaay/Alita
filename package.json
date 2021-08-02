@@ -9,7 +9,7 @@
     "chalk": "^4.1.1",
     "chart.js": "^2.9.4",
     "chartjs-node-canvas": "^3.2.0",
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.0.0-dev.t1627906063.6e0ea02",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "mongoose": "^5.12.12",
