@@ -11,13 +11,13 @@ module.exports = async(client, member) => {
 
         // Replace all valid tags
         let finalMsg = await welcomeMsg
-        .replace("{user.ping}", `${member.user}`)
-        .replace("{user.name}", `${member.user.username}`)
-        .replace("{user.id}", `${member.user.id}`)
-        .replace("{user.tag}", `${member.user.tag}`)
-        .replace("{guild.name}", `${guild.name}`)
-        .replace("{guild.id}", `${guild.id}`)
-        .replace("{guild.totalUser}", `${guild.memberCount}`);
+        .replace(/{user.ping}/g, `${member.user}`)
+        .replace(/{user.name}/g, `${member.user.username}`)
+        .replace(/{user.id}/g, `${member.user.id}`)
+        .replace(/{user.tag}/g, `${member.user.tag}`)
+        .replace(/{guild.name}/g, `${guild.name}`)
+        .replace(/{guild.id}/g, `${guild.id}`)
+        .replace(/{guild.totalUser}/g, `${guild.memberCount}`);
     
         return welcomeChannel.send(finalMsg) // Send the final message to the welcome channel
     
