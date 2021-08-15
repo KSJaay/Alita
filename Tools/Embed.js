@@ -7,7 +7,7 @@ module.exports.send = async function(message, embed){
     .setColor(config.color)
     embed = {... newEmbed, ... embed}
 
-    return message.channel.send({embed: embed});
+    return message.channel.send({embeds: [embed]});
 
 };
 
@@ -22,6 +22,6 @@ module.exports.usage = async function(message, data){
     .setDescription("Missing arguments for command. Please provide the valid inputs.")
     .addField("__Usage__", usageDesc);
 
-    return message.channel.send(newEmbed);
+    return message.channel.send({embeds: [newEmbed]});
 
 };
