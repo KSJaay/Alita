@@ -5,7 +5,7 @@ mongoose = require('mongoose'),
 util = require('util'),
 config = require('./config.json'),
 readdir = util.promisify(fs.readdir),
-client = new Discord.Client();
+client = new Discord.Client({ intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_VOICE_STATES', 'GUILD_MESSAGES', 'DIRECT_MESSAGES']});
 
 // Adding to the client
 client.event = new Discord.Collection();

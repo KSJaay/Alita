@@ -1,4 +1,4 @@
-const config = require("./../config.json"),
+const config = require("../config.json"),
 cmdCooldown = {};
 
 module.exports = async(client, message) => {
@@ -16,7 +16,7 @@ try {
 
     //Check if message mentions bot only
     if(message.content ===`<@!${message.client.user.id}>` || message.content ===`<@${message.client.user.id}>`){
-        return message.reply(`Uh-Oh! You forgot the prefix? It's \`${prefix}\``);;
+        return message.reply({ content: `Uh-Oh! You forgot the prefix? It's \`${prefix}\``, allowedMentions: { repliedUser: true }});
     }
 
     // Return if it doesn't start with prefix
@@ -35,7 +35,7 @@ try {
     }
 
     //If command is owner only and author isn't owner return
-    if(cmd.ownerOnly && message.author.id !== config.ownerID){
+    if(cmd.ownerOnly && message.author.id !== config.ownerId){
         return;
     }
 

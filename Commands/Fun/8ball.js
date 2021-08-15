@@ -14,7 +14,7 @@ module.exports = {
     // Execute contains content for the command
     async execute(client, message, args, data){
         try{
-            if(!args[0]) return message.reply("Please ask a question");
+            if(!args[0]) return message.reply({content: "Please ask a question", allowedMentions: {repliedUser: false}});
 
             let replies = [
                 'Maybe.',
