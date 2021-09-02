@@ -4,12 +4,22 @@
 A simple bot created to show the possibilities of coding using Discord.js API to create features. Will be getting more Advance over time.
 
 ## 🚀 Getting Started
-**Requirements:**
-1. Discord Bot Token **[Guide](https://discordjs.guide/preparations/setting-up-a-bot-application.html#your-token)**
-2. Make sure you have installed **[Node.js](https://nodejs.org/en/)** v12 or higher and **[Mongoose](https://mongoosejs.com/docs/)**
 
+Make sure you have the following applications installed and tokens registered before starting:
+1. You need to install [Node.js](https://nodejs.org/en/) v16.6.0 or higher and [MongoDB](https://www.mongodb.com/).
+2. Clone the repository https://github.com/KSJaay/Alita.git
+3. Register for a Discord bot token using this **[Guide](https://discordjs.guide/preparations/setting-up-a-bot-application.html#your-token)**
+4. PM2 - Is an optional module
 
-For more information on how to get the bot up and running check out our [Installation guide](https://ksjaay.gitbook.io/alitabot/)
+### Before starting
+Before you start the bot you'll need to change the name of `config.sample.json` to `config.json` and then add your bots token along with the API keys required for some of the features. If you do not want get specific API keys, don't add them to config.json and the command will be automatically disabled. 
+
+### Install modules
+* Launch an Admin Command Prompt in the Alita directory.
+* Make sure `Package.json` is in the file location
+* `npm install`
+* `npm start index.js`
+* And then enjoy the features Alita offers ❤️
 
 ## Support
 If you have any issues with the code, please open an issue by [clicking here](https://github.com/KSJaay/Alita/issues)
