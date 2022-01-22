@@ -13,7 +13,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "mongoose": "^5.12.12",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "random-puppy": "^1.1.0",
     "some-random-cat": "^2.2.1",
     "twitch-api-v5": "^2.0.4"
