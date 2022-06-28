@@ -4,7 +4,7 @@
   "description": "A Discord.js bot using MongoDB (npm package Mongoose) to create a bot people can use to learn Discord.js",
   "main": "Alita.js",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "canvas": "^2.8.0",
     "chalk": "^4.1.1",
     "chart.js": "^2.9.4",
