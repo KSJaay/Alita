@@ -12,7 +12,7 @@
     "discord.js": "^13.1.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
-    "mongoose": "^5.12.12",
+    "mongoose": "^5.13.15",
     "node-fetch": "^2.6.7",
     "random-puppy": "^1.1.0",
     "some-random-cat": "^2.2.1",
