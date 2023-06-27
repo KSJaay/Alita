@@ -9,10 +9,26 @@ module.exports = {
     user: true,
     member: true,
   },
-  interaction: {},
 
   async execute(client, interaction, data = {}) {
     try {
-    } catch (error) {}
+      interaction.reply({
+        content: "Pong!\n\nAPI Latency is `" + client.ws.ping + "ms`.",
+        ephemeral: true,
+      });
+    } catch (error) {
+      logger.error(`Error executing '${this.name}' command!`, {
+        label: "Command",
+        message: error.message,
+        stack: error.stack,
+        data,
+      });
+    }
+  },
+
+  interaction: {
+    name: "ping",
+    description: "Check the current api latency",
+    options: [],
   },
 };
