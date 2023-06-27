@@ -26,7 +26,7 @@ const timestampFormat = winston.format.combine(
 
 const formatTransportType = (type) => {
   const transporter = new winston.transports.DailyRotateFile({
-    filename: path.join(__dirname, `/logger/logs/${type}-%DATE%.log`),
+    filename: path.join(__dirname, `/logs/${type}-%DATE%.log`),
     datePattern: "MM-YYYY",
     level: type,
     format: winston.format.combine(
