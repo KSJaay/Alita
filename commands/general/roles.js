@@ -1,3 +1,5 @@
+const {successEmbed} = require("../../utils/embeds");
+
 module.exports = {
   name: "roles",
   category: "📋 General",
