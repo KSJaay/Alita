@@ -1,3 +1,6 @@
+const axios = require("axios");
+const {successEmbed} = require("../../utils/embeds");
+
 module.exports = {
   name: "meme",
   category: "⚙️ Fun",
@@ -9,10 +12,36 @@ module.exports = {
     user: true,
     member: true,
   },
-  interaction: {},
 
   async execute(client, interaction, data = {}) {
     try {
-    } catch (error) {}
+      axios.get("https://some-random-api.ml/meme").then((res) => {
+        return interaction.reply({
+          embeds: [
+            successEmbed({
+              title: res.data.caption,
+              url: res.data.image,
+              image: {
+                url: res.data.image,
+              },
+              color: "RANDOM",
+            }),
+          ],
+        });
+      });
+    } catch (error) {
+      logger.error(`Error executing '${this.name}' command!`, {
+        label: "Command",
+        message: error.message,
+        stack: error.stack,
+        data,
+      });
+    }
+  },
+
+  interaction: {
+    name: "meme",
+    description: "Generate a random meme",
+    options: [],
   },
 };
