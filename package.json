@@ -1,6 +1,6 @@
 {
   "name": "alita",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A Discord.js bot using MongoDB (npm package Mongoose) to create a bot people can use to learn Discord.js",
   "main": "Alita.js",
   "dependencies": {
@@ -9,6 +9,7 @@
     "chart.js": "^4.3.0",
     "chartjs-node-canvas": "^4.1.6",
     "discord.js": "^14.11.0",
+    "dotenv": "^16.3.1",
     "mongoose": "^7.3.1",
     "winston": "^3.9.0",
     "winston-daily-rotate-file": "^4.7.1"
@@ -16,7 +17,9 @@
   "scripts": {
     "test": "jest --maxWorkers=50%",
     "start": "node Alita.js",
-    "dev": "nodemon Alita.js"
+    "watch": "nodemon Alita.js --wait 1500",
+    "upload:global": "node ./scripts/interactions.js",
+    "upload:guild": "node ./scripts/interactionsForGuild.js"
   },
   "repository": {
     "type": "git",

@@ -9,8 +9,7 @@
 # misc
 .DS_Store
 *.pem
-/shared/monitoring/logs*
-/shared/config/liveDials.json
+logger/logs
 
 # debug
 npm-debug.log*
@@ -22,6 +21,4 @@ yarn-error.log*
 .env
 package-lock.json
 .dccache
-badgeUsers.js
-wowoowow.json
 yarn.lock
