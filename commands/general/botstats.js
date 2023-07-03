@@ -24,7 +24,6 @@ module.exports = {
     user: true,
     member: true,
   },
-  interaction: {},
 
   async execute(client, interaction, data = {}) {
     try {
@@ -68,5 +67,11 @@ module.exports = {
         data,
       });
     }
+  },
+
+  interaction: {
+    name: "botstats",
+    description: "Check the bot's stats",
+    options: [],
   },
 };

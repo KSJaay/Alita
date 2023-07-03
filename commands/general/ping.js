@@ -14,7 +14,7 @@ module.exports = {
     try {
       interaction.reply({
         content: "Pong!\n\nAPI Latency is `" + client.ws.ping + "ms`.",
-        ephemeral: true,
+        ephemeral: false,
       });
     } catch (error) {
       logger.error(`Error executing '${this.name}' command!`, {

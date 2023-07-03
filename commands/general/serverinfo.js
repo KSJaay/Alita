@@ -1,4 +1,5 @@
 const {successEmbed} = require("../../utils/embeds");
+const logger = require("../../logger");
 
 module.exports = {
   name: "serverinfo",
@@ -11,10 +12,11 @@ module.exports = {
     user: true,
     member: true,
   },
-  interaction: {},
 
   async execute(client, interaction, data = {}) {
     try {
+      console.log(interaction.guild);
+
       const guildCreateDate = interaction.guild.createdAt;
       const textChannels = interaction.guild.channels.cache.filter(
         (channel) => channel.type === "GUILD_TEXT"
@@ -33,19 +35,8 @@ module.exports = {
       const boostTier = interaction.guild.premiumTier;
       const verificationLevel = interaction.guild.verificationLevel;
       const explicitContentFilter = interaction.guild.explicitContentFilter;
-      const guildFeatures = interaction.guild.features.join(", ");
+      const guildFeatures = interaction.guild.features.join(", ") || "None";
       const guildOwner = interaction.guild.ownerId;
-      const guildOwnerTag = interaction.guild.owner.user.tag;
-      const guildOwnerNickname = interaction.guild.owner.nickname;
-      const guildOwnerAvatar = interaction.guild.owner.user.avatarURL({
-        dynamic: true,
-      });
-      const guildOwnerCreatedAt = interaction.guild.owner.user.createdAt;
-      const guildOwnerJoinedAt = interaction.guild.owner.joinedAt;
-      const guildOwnerRoles = interaction.guild.owner.roles.cache
-        .filter((role) => role.name !== "@everyone")
-        .sort((a, b) => b.position - a.position)
-        .map((role) => `${role}`);
 
       return interaction.reply({
         embeds: [
@@ -59,9 +50,7 @@ module.exports = {
               },
               {
                 name: "Owner",
-                value: `**ID:** ${guildOwner}\n**Tag:** ${guildOwnerTag}\n**Nickname:** ${guildOwnerNickname}\n**Avatar:** [Click Here](${guildOwnerAvatar})\n**Created At:** ${guildOwnerCreatedAt}\n**Joined At:** ${guildOwnerJoinedAt}\n**Roles:** ${guildOwnerRoles.join(
-                  "\n"
-                )}`,
+                value: `**ID:** ${guildOwner}\n**User**: <@!${guildOwner}>`,
               },
             ],
           }),
@@ -75,5 +64,11 @@ module.exports = {
         data,
       });
     }
+  },
+
+  interaction: {
+    name: "serverinfo",
+    description: "Information about the current server",
+    options: [],
   },
 };

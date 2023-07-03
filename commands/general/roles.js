@@ -11,7 +11,6 @@ module.exports = {
     user: true,
     member: true,
   },
-  interaction: {},
 
   async execute(client, interaction, data = {}) {
     try {
@@ -24,7 +23,7 @@ module.exports = {
         embeds: [
           successEmbed({
             title: "Roles",
-            description: `**${interaction.guild.name}** has **${guildRoles.length}**`,
+            description: `**${interaction.guild.name}** has **${guildRoles.length}** roles`,
             fields: [
               {
                 name: "Roles",
@@ -42,5 +41,11 @@ module.exports = {
         data,
       });
     }
+  },
+
+  interaction: {
+    name: "roles",
+    description: "Check all the available roles in the server",
+    options: [],
   },
 };

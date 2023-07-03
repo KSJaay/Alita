@@ -20,7 +20,6 @@ module.exports = {
     user: true,
     member: true,
   },
-  interaction: {},
 
   async execute(client, interaction, data = {}) {
     try {
@@ -51,5 +50,11 @@ module.exports = {
         data,
       });
     }
+  },
+
+  interaction: {
+    name: "settings",
+    description: "Information about the current settings",
+    options: [],
   },
 };

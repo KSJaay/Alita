@@ -24,7 +24,7 @@ module.exports = {
               image: {
                 url: res.data.image,
               },
-              color: "RANDOM",
+              color: 7143340,
             }),
           ],
         });

@@ -11,7 +11,6 @@ module.exports = {
     user: true,
     member: true,
   },
-  interaction: {},
 
   async execute(client, interaction, data = {}) {
     try {
@@ -37,5 +36,18 @@ module.exports = {
         data,
       });
     }
+  },
+
+  interaction: {
+    name: "avatar",
+    description: "Get a specific users avatar",
+    options: [
+      {
+        type: 6,
+        name: "user",
+        description: "Mention a user you want to find",
+        required: false,
+      },
+    ],
   },
 };

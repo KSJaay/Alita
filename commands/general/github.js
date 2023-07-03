@@ -1,5 +1,6 @@
 const axios = require("axios");
 const {successEmbed} = require("../../utils/embeds");
+const logger = require("../../logger");
 
 module.exports = {
   name: "github",
@@ -12,7 +13,6 @@ module.exports = {
     user: true,
     member: true,
   },
-  interaction: {},
 
   async execute(client, interaction, data = {}) {
     try {
@@ -21,13 +21,14 @@ module.exports = {
 
       const path =
         user && repo ? `repos/${user}/${repo}` : "repos/ksjaay/alita";
+      const url = `https://api.github.com/${path}`;
 
-      const query = await axios("GET", `https://api.github.com/${path}`);
+      const query = await axios.get(url);
 
       if (query.status !== 200) {
         return interaction.reply({
           content: "Error fetching data",
-          ephemeral: true,
+          ephemeral: false,
         });
       }
 
@@ -78,5 +79,24 @@ module.exports = {
         data,
       });
     }
+  },
+
+  interaction: {
+    name: "github",
+    description: "Get information about a github repository",
+    options: [
+      {
+        type: 3,
+        name: "user",
+        description: "Name of Github user",
+        required: true,
+      },
+      {
+        type: 3,
+        name: "repo",
+        description: "Name of Github repository",
+        required: true,
+      },
+    ],
   },
 };

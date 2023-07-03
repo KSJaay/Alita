@@ -61,7 +61,7 @@ module.exports = {
             ],
           }),
         ],
-        ephemeral: true,
+        ephemeral: false,
       });
     } catch (error) {
       logger.error(`Error executing '${this.name}' command!`, {
