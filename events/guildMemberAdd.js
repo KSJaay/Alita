@@ -30,7 +30,6 @@ module.exports = async (client, member) => {
     logger.error("guildMemberAdd", {
       label: "Event",
       message: error.message,
-      stack: error.stack,
     });
   }
 };

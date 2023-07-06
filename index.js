@@ -78,7 +78,6 @@ process.on("SIGTERM", async () => {
 process.on("uncaughtException", (error) => {
   logger.error("uncaughtException", {
     error: error.message || null,
-    stack: error.stack || null,
   });
 });
 

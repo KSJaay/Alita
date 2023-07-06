@@ -26,7 +26,6 @@ module.exports = async (client, member) => {
     logger.error("guildMemberRemove", {
       label: "Event",
       message: error.message,
-      stack: error.stack,
     });
   }
 };

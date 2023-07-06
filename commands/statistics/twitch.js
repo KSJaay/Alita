@@ -20,7 +20,7 @@ module.exports = {
       logger.error(`Error executing '${this.name}' command!`, {
         label: "Command",
         message: error.message,
-        stack: error.stack,
+
         data,
       });
     }
