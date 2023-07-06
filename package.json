@@ -7,6 +7,7 @@
   "scripts": {
     "test": "jest --maxWorkers=50%",
     "start": "node Alita.js",
+    "migrate": "node ./scripts/migrateDbFromV1ToV2.js",
     "watch": "nodemon Alita.js --wait 1500",
     "upload:global": "node ./scripts/interactions.js",
     "upload:guild": "node ./scripts/interactionsForGuild.js"
