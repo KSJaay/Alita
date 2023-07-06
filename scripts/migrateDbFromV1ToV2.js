@@ -12,7 +12,9 @@ async function migrate() {
       useUnifiedTopology: true,
     })
     .catch((error) => {
-      console.log("Error connecting to MongoDB", error);
+      logger.error("Error connecting to MongoDB", {
+        message: error.message,
+      });
 
       process.exit(1);
     });
@@ -23,7 +25,7 @@ async function migrate() {
     const {id, addons, prefix} = guild;
 
     if (addons || prefix) {
-      const newGuild = await guildSchema
+      await guildSchema
         .findOneAndUpdate(
           {id},
           {
@@ -43,7 +45,6 @@ async function migrate() {
             message: error.message,
           });
         });
-      console.log({newGuild});
     }
   }
 
