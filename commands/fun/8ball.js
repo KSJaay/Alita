@@ -1,4 +1,5 @@
 const {successEmbed} = require("../../utils/embeds");
+const logger = require("../../logger");
 
 const replies = [
   "Maybe.",

@@ -1,4 +1,5 @@
 const {successEmbed} = require("../../utils/embeds");
+const logger = require("../../logger");
 
 function msToTime(duration) {
   var milliseconds = parseInt((duration % 1000) / 100),

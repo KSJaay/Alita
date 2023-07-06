@@ -1,6 +1,9 @@
+const {successEmbed} = require("../../utils/embeds");
+const logger = require("../../logger");
+
 module.exports = {
   name: "twitch",
-  category: "📋 Statistics",
+  category: "📷 Statistics",
   permissions: {
     admin: true,
   },
@@ -13,6 +16,26 @@ module.exports = {
 
   async execute(client, interaction, data = {}) {
     try {
-    } catch (error) {}
+    } catch (error) {
+      logger.error(`Error executing '${this.name}' command!`, {
+        label: "Command",
+        message: error.message,
+        stack: error.stack,
+        data,
+      });
+    }
+  },
+
+  interaction: {
+    name: "twitch",
+    description: "Get information about a twitch account",
+    options: [
+      {
+        type: 3,
+        name: "username",
+        description: "Name of user's twitch account",
+        required: true,
+      },
+    ],
   },
 };

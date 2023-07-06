@@ -1,3 +1,5 @@
+const logger = require("../../logger");
+
 module.exports = {
   name: "ping",
   category: "📋 General",

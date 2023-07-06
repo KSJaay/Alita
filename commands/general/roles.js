@@ -1,4 +1,5 @@
 const {successEmbed} = require("../../utils/embeds");
+const logger = require("../../logger");
 
 module.exports = {
   name: "roles",
