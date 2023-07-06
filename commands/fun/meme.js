@@ -1,9 +1,11 @@
-const axios = require("axios");
 const {successEmbed} = require("../../utils/embeds");
+const logger = require("../../logger");
+const Reddit = require("../../utils/reddit");
+const redditClient = new Reddit("dankmemes");
 
 module.exports = {
   name: "meme",
-  category: "⚙️ Fun",
+  category: "🎉 Fun",
   permissions: {
     admin: true,
   },
@@ -15,19 +17,19 @@ module.exports = {
 
   async execute(client, interaction, data = {}) {
     try {
-      axios.get("https://some-random-api.ml/meme").then((res) => {
-        return interaction.reply({
-          embeds: [
-            successEmbed({
-              title: res.data.caption,
-              url: res.data.image,
-              image: {
-                url: res.data.image,
-              },
-              color: 7143340,
-            }),
-          ],
-        });
+      const image = redditClient.random();
+
+      const embed = successEmbed({
+        title: "Dank memes",
+        url: image.permalink,
+        description: image.title,
+        image: {
+          url: image.url,
+        },
+      });
+
+      return interaction.reply({
+        embeds: [embed],
       });
     } catch (error) {
       logger.error(`Error executing '${this.name}' command!`, {

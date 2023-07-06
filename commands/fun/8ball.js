@@ -33,7 +33,7 @@ const replies = [
 module.exports = {
   name: "8ball",
   description: "Ask the magic 8 ball a question.",
-  category: "⚙️ Fun",
+  category: "🎉 Fun",
   permissions: {
     admin: true,
   },

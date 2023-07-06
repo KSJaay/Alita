@@ -1,6 +1,11 @@
+const {successEmbed} = require("../../utils/embeds");
+const logger = require("../../logger");
+const Reddit = require("../../utils/reddit");
+const redditClient = new Reddit("dogpictures");
+
 module.exports = {
   name: "dog",
-  category: "📋 Images",
+  category: "🐸 Images",
   permissions: {
     admin: true,
   },
@@ -9,10 +14,36 @@ module.exports = {
     user: true,
     member: true,
   },
-  interaction: {},
 
   async execute(client, interaction, data = {}) {
     try {
-    } catch (error) {}
+      const image = redditClient.random();
+
+      const embed = successEmbed({
+        title: "Doggo",
+        url: image.permalink,
+        description: image.title,
+        image: {
+          url: image.url,
+        },
+      });
+
+      return interaction.reply({
+        embeds: [embed],
+      });
+    } catch (error) {
+      logger.error(`Error executing '${this.name}' command!`, {
+        label: "Command",
+        message: error.message,
+        stack: error.stack,
+        data,
+      });
+    }
+  },
+
+  interaction: {
+    name: "dog",
+    description: "Random image of a dog",
+    options: [],
   },
 };
