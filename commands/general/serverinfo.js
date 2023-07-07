@@ -15,8 +15,6 @@ module.exports = {
 
   async execute(client, interaction, data = {}) {
     try {
-      console.log(interaction.guild);
-
       const guildCreateDate = interaction.guild.createdAt;
       const textChannels = interaction.guild.channels.cache.filter(
         (channel) => channel.type === "GUILD_TEXT"

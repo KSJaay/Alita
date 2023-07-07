@@ -1,7 +1,7 @@
 const {successEmbed} = require("../../utils/embeds");
 const logger = require("../../logger");
-
 const {updateGuild} = require("../../database/queries/guild");
+const replacers = require("../../utils/replacers");
 
 module.exports = {
   name: "goodbye",
@@ -80,13 +80,16 @@ module.exports = {
           });
         }
 
-        const message = data.guild.goodbye.message
-          .replace(/{user}/g, interaction.user)
-          .replace(/{server}/g, interaction.guild.name);
+        const message = replacers(
+          data.guild.goodbye.message,
+          interaction.user,
+          interaction.guild
+        );
 
-        const embed = new MessageEmbed()
-          .setColor("RANDOM")
-          .setDescription(message);
+        const embed = successEmbed({
+          title: "Goodbye!",
+          description: message,
+        });
 
         channel.send({embeds: [embed]});
 
@@ -99,7 +102,6 @@ module.exports = {
       logger.error(`Error executing '${this.name}' command!`, {
         label: "Command",
         message: error.message,
-
         data,
       });
     }

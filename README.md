@@ -89,7 +89,7 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 | ------------- | -------------------------------------------- | ----------------------- | ------ |
 | `addcommand`  | Add a custom command to the server           | Admin                   | ❌     |
 | `addemoji`    | Add an emoji to the server                   | Admin                   | ❌     |
-| `blacklist`   | Blacklist a user from the bot                | Admin                   | ❌     |
+| `blacklist`   | Blacklist a command from the server          | Admin                   | ❌     |
 | `delcommand`  | Delete a custom command                      | Admin                   | ❌     |
 | `setlogs`     | Set the logs channel for the bot             | Admin                   | ❌     |
 | `ban`         | Ban a user from the server                   | Admin                   | ❌     |
@@ -101,7 +101,7 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 | `unmute`      | Unmute a user                                | Admin                   | ❌     |
 | `unban`       | Unban a user                                 | Admin                   | ❌     |
 | `currentbans` | Get a list of current bans                   | Admin                   | ❌     |
-| `rps`         | Play rock paper scissors                     | Games                   | ❌     |
+| `rps`         | Play rock paper scissors                     | Games                   | ✔      |
 | `fortnite`    | Get statistics about a Fortnite account      | Game statistics         | ❌     |
 | `apex`        | Get statistics about a Apex Legends account  | Game statistics         | ❌     |
 | `rainbow`     | Get statistics about a Rainbow Six account   | Game statistics         | ❌     |
