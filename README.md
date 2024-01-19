@@ -33,21 +33,21 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 
 ### Admin
 
-| Name            | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| `Configuration` | Get the current configurations for this server        |
-| `Goodbye`       | When user leaves server send message to channel       |
-| `Invites`       | See dates when users joined the server                |
-| `Setprefix`     | Set the prefix for your servers                       |
-| `Welcome`       | When a user joins the server, send message to channel |
+| Name          | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| `currentbans` | Get a list of current bans                            |
+| `Goodbye`     | When user leaves server send message to channel       |
+| `Invites`     | See dates when users joined the server                |
+| `Settings`    | Get the current Settings for this server              |
+| `Welcome`     | When a user joins the server, send message to channel |
 
 ### Fun
 
-| Name        | Description                                           |
-| ----------- | ----------------------------------------------------- |
-| `Goodbye`   | When user leaves server send message to channel       |
-| `Setprefix` | Set the prefix for your servers                       |
-| `Welcome`   | When a user joins the server, send message to channel |
+| Name    | Description                   |
+| ------- | ----------------------------- |
+| `8ball` | Ask the 8ball a question      |
+| `meme`  | Get a random meme from reddit |
+| `rps`   | Play rock paper scissors      |
 
 ### General
 
@@ -55,7 +55,6 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 | ------------ | ----------------------------------------- |
 | `Avatar`     | Get the link for the users Avatar         |
 | `Botstats`   | Get the current stats of the bot          |
-| `Calculator` | Do basic calculations                     |
 | `Github`     | Get information about a Github repository |
 | `Help`       | Get the list of commands Alita offers     |
 | `Ping`       | Displays the current API latency          |
@@ -85,30 +84,28 @@ If you have any issues with the code, please open an issue by [clicking here](ht
 - ✔: Finished
 - 💯: Prioritising before everything else
 
-| Command       | Description                                  | Category                | Status |
-| ------------- | -------------------------------------------- | ----------------------- | ------ |
-| `addcommand`  | Add a custom command to the server           | Admin                   | ❌     |
-| `addemoji`    | Add an emoji to the server                   | Admin                   | ❌     |
-| `blacklist`   | Blacklist a command from the server          | Admin                   | ❌     |
-| `delcommand`  | Delete a custom command                      | Admin                   | ❌     |
-| `setlogs`     | Set the logs channel for the bot             | Admin                   | ❌     |
-| `ban`         | Ban a user from the server                   | Admin                   | ❌     |
-| `kick`        | Kick a user from the server                  | Admin                   | ❌     |
-| `warn`        | Warn a user                                  | Admin                   | ❌     |
-| `mute`        | Mute a user                                  | Admin                   | ❌     |
-| `warnings`    | Get a list of warnings for a user            | Admin                   | ❌     |
-| `clear`       | Clear messages from a channel                | Admin                   | ❌     |
-| `unmute`      | Unmute a user                                | Admin                   | ❌     |
-| `unban`       | Unban a user                                 | Admin                   | ❌     |
-| `currentbans` | Get a list of current bans                   | Admin                   | ❌     |
-| `rps`         | Play rock paper scissors                     | Games                   | ✔      |
-| `fortnite`    | Get statistics about a Fortnite account      | Game statistics         | ❌     |
-| `apex`        | Get statistics about a Apex Legends account  | Game statistics         | ❌     |
-| `rainbow`     | Get statistics about a Rainbow Six account   | Game statistics         | ❌     |
-| `valorant`    | Get statistics about a Valorant account      | Game statistics         | ❌     |
-| `rocket`      | Get statistics about a Rocket League account | Game statistics         | ❌     |
-| `cod`         | Get statistics about a Call of Duty account  | Game statistics         | ❌     |
-| `minecraft`   | Get statistics about a Minecraft account     | Game statistics         | ❌     |
-| `twitch`      | Get statistics about a Twitch account        | Social media statistics | ❌     |
-| `twitter`     | Get statistics about a Twitter account       | Social media statistics | ❌     |
-| `youtube`     | Get statistics about a Youtube account       | Social media statistics | ❌     |
+| Command      | Description                                  | Category                | Status |
+| ------------ | -------------------------------------------- | ----------------------- | ------ |
+| `addcommand` | Add a custom command to the server           | Admin                   | ❌     |
+| `addemoji`   | Add an emoji to the server                   | Admin                   | ❌     |
+| `blacklist`  | Blacklist a command from the server          | Admin                   | ❌     |
+| `delcommand` | Delete a custom command                      | Admin                   | ❌     |
+| `setlogs`    | Set the logs channel for the bot             | Admin                   | ❌     |
+| `ban`        | Ban a user from the server                   | Admin                   | ❌     |
+| `kick`       | Kick a user from the server                  | Admin                   | ❌     |
+| `warn`       | Warn a user                                  | Admin                   | ❌     |
+| `mute`       | Mute a user                                  | Admin                   | ❌     |
+| `warnings`   | Get a list of warnings for a user            | Admin                   | ❌     |
+| `clear`      | Clear messages from a channel                | Admin                   | ❌     |
+| `unmute`     | Unmute a user                                | Admin                   | ❌     |
+| `unban`      | Unban a user                                 | Admin                   | ❌     |
+| `fortnite`   | Get statistics about a Fortnite account      | Game statistics         | ❌     |
+| `apex`       | Get statistics about a Apex Legends account  | Game statistics         | ❌     |
+| `rainbow`    | Get statistics about a Rainbow Six account   | Game statistics         | ❌     |
+| `valorant`   | Get statistics about a Valorant account      | Game statistics         | ❌     |
+| `rocket`     | Get statistics about a Rocket League account | Game statistics         | ❌     |
+| `cod`        | Get statistics about a Call of Duty account  | Game statistics         | ❌     |
+| `minecraft`  | Get statistics about a Minecraft account     | Game statistics         | ❌     |
+| `twitch`     | Get statistics about a Twitch account        | Social media statistics | ❌     |
+| `twitter`    | Get statistics about a Twitter account       | Social media statistics | ❌     |
+| `youtube`    | Get statistics about a Youtube account       | Social media statistics | ❌     |
