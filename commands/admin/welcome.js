@@ -81,13 +81,13 @@ module.exports = {
         }
 
         const message = replacers(
-          data.guild.goodbye.message,
+          data.guild.welcome.message,
           interaction.user,
           interaction.guild
         );
 
         const embed = successEmbed({
-          title: "Goodbye!",
+          title: "Welcome!",
           description: message,
         });
 
