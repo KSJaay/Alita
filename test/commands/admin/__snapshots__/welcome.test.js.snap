@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`goodbye command snaphot of interaction data 1`] = `
+{
+  "description": "Send a welcome message when a user joins the server.",
+  "name": "welcome",
+  "options": [
+    {
+      "description": "Select the channel where you want to send the welcome message",
+      "name": "set",
+      "options": [
+        {
+          "description": "Select a channel to send welcome messages",
+          "name": "channel",
+          "required": true,
+          "type": 7,
+        },
+      ],
+      "type": 1,
+    },
+    {
+      "description": "Customise the embed for welcome messages",
+      "name": "customise",
+      "options": [
+        {
+          "description": "Enter the description for the welcome message",
+          "name": "description",
+          "required": true,
+          "type": 3,
+        },
+      ],
+      "type": 1,
+    },
+    {
+      "description": "Disable welcome messages from being sent",
+      "name": "disable",
+      "type": 1,
+    },
+    {
+      "description": "Test welcome messages",
+      "name": "test",
+      "type": 1,
+    },
+  ],
+}
+`;

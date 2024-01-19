@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`settings command snaphot of interaction data 1`] = `
+{
+  "description": "Information about the current settings",
+  "name": "settings",
+  "options": [],
+}
+`;

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`currentbans command snaphot of interaction data 1`] = `
+{
+  "description": "Ask the magic 8 ball a question.",
+  "name": "8ball",
+  "options": [
+    {
+      "description": "What is your question?",
+      "name": "question",
+      "required": true,
+      "type": 3,
+    },
+  ],
+}
+`;

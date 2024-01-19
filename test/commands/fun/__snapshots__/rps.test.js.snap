@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rps command snaphot of interaction data 1`] = `
+{
+  "description": "Play a game of rock, paper, scissors.",
+  "name": "rps",
+  "options": [
+    {
+      "choices": [
+        {
+          "name": "Rock",
+          "value": "rock",
+        },
+        {
+          "name": "Paper",
+          "value": "paper",
+        },
+        {
+          "name": "Scissors",
+          "value": "scissors",
+        },
+      ],
+      "description": "Choose your weapon?",
+      "name": "weapon",
+      "required": true,
+      "type": 3,
+    },
+  ],
+}
+`;
