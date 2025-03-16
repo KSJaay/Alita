@@ -1,68 +1,5 @@
 const { basicEmbed } = require("../../tools/embeds");
-const createButtons = require("../../tools/buttons");
-
-const getButtons = (filledSlots, uniqueId) => [
-  createButtons([
-    {
-      custom_id: `ttt_0_${uniqueId}`,
-      label: "1",
-      style: 1,
-      disabled: filledSlots.includes("0"),
-    },
-    {
-      custom_id: `ttt_1_${uniqueId}`,
-      label: "2",
-      style: 1,
-      disabled: filledSlots.includes("1"),
-    },
-    {
-      custom_id: `ttt_2_${uniqueId}`,
-      label: "3",
-      style: 1,
-      disabled: filledSlots.includes("2"),
-    },
-  ]),
-  createButtons([
-    {
-      custom_id: `ttt_3_${uniqueId}`,
-      label: "4",
-      style: 1,
-      disabled: filledSlots.includes("3"),
-    },
-    {
-      custom_id: `ttt_4_${uniqueId}`,
-      label: "5",
-      style: 1,
-      disabled: filledSlots.includes("4"),
-    },
-    {
-      custom_id: `ttt_5_${uniqueId}`,
-      label: "6",
-      style: 1,
-      disabled: filledSlots.includes("5"),
-    },
-  ]),
-  createButtons([
-    {
-      custom_id: `ttt_6_${uniqueId}`,
-      label: "7",
-      style: 1,
-      disabled: filledSlots.includes("6"),
-    },
-    {
-      custom_id: `ttt_7_${uniqueId}`,
-      label: "8",
-      style: 1,
-      disabled: filledSlots.includes("7"),
-    },
-    {
-      custom_id: `ttt_8_${uniqueId}`,
-      label: "9",
-      style: 1,
-      disabled: filledSlots.includes("8"),
-    },
-  ]),
-];
+const { getTicTacToeButtons } = require("../../tools/commands/tictactoe");
 
 const getTicTacToeGame = (client, uniqueId) => {
   const tttGames = client.games.get("tictactoe") || {};
@@ -197,7 +134,7 @@ module.exports = {
               color: 16231462,
             }),
           ],
-          components: getButtons(
+          components: getTicTacToeButtons(
             [...gameInfo.opponent.positions, ...gameInfo.challenger.positions],
             action
           ),

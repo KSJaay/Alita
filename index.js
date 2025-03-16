@@ -29,7 +29,7 @@ async function init() {
   client.buttons = new Discord.Collection();
   client.commands = new Discord.Collection();
   client.games = new Discord.Collection();
-  client.interaction_flags = config.INTERACTION_FLAGS;
+  client.interaction_flags = config.INTERACTION_FLAGS || 0;
 
   const commandFolders = fs.readdirSync(__dirname + "/commands");
 

@@ -1,34 +1,6 @@
-const { customAlphabet } = require("nanoid");
-
 const createButtons = require("../../tools/buttons");
 const { basicEmbed } = require("../../tools/embeds");
-
-const nanoid = customAlphabet("1234567890abcdef", 10);
-
-const getUniqueId = (client) => {
-  const rpsGames = client.games.get("rps") || {};
-  let uniqueId = nanoid();
-  while (rpsGames[uniqueId]) {
-    uniqueId = nanoid();
-  }
-
-  return uniqueId;
-};
-
-const addGameData = (client, uniqueId, userId, opponentId, isBot = false) => {
-  client.games.set("rps", {
-    ...client.games.get("rps"),
-    [uniqueId]: {
-      challenger: { userId, weapon: null },
-      opponent: { userId: opponentId, weapon: null },
-      uniqueId,
-      createdAt: Date.now(),
-      completedAt: null,
-      winner: null,
-      isBot,
-    },
-  });
-};
+const { getUniqueRpsId, addRpsGameData } = require("../../tools/commands/rps");
 
 module.exports = {
   name: "rps",
@@ -72,9 +44,9 @@ module.exports = {
         ? `You have chosen to play rock-paper-scissors against **ME**??\n\nChoose your weapon, I'm going to win anyways.`
         : `You have chosen to play rock-paper-scissors against <@${userId}>!\n\nCurrently waiting for:\n<@${interaction.user.id}> to choose an option\n<@${userId}> to choose an option.`;
 
-    const uniqueId = getUniqueId(client);
+    const uniqueId = getUniqueRpsId(client);
 
-    addGameData(
+    addRpsGameData(
       client,
       uniqueId,
       interaction.user.id,
