@@ -1,91 +1,48 @@
-const {successEmbed} = require("../../utils/embeds");
-const logger = require("../../logger");
+const { basicEmbed } = require("../../tools/embeds");
 
 module.exports = {
   name: "help",
-  category: "📋 General",
-  permissions: {
-    admin: true,
-  },
-  database: {
-    guild: true,
-    user: true,
-    member: true,
-  },
-  interaction: {},
+  description: "Open a lootbox",
+  usage: "help [command]",
+  category: "general",
 
-  async execute(client, interaction, data = {}) {
-    try {
-      const commandName = interaction.options.getString("command");
+  async execute(client, interaction) {
+    const commandName = interaction.options.getString("command");
 
-      if (commandName) {
-        const command = client.commands.get(commandName);
-        if (command) {
-          return interaction.reply({
-            embeds: [
-              successEmbed({
-                title: command.name,
-                description: command.description,
-                fields: [
-                  {
-                    name: "Category",
-                    value: command.category,
-                    inline: true,
-                  },
-                  {
-                    name: "Permissions",
-                    value: JSON.stringify(command.permissions),
-                    inline: true,
-                  },
-                ],
-              }),
-            ],
-          });
-        }
-      }
-
-      const categories = client.commands
-        .map((command) => command.category)
-        .filter((value, index, self) => self.indexOf(value) === index);
-
-      const fields = categories.map((category) => ({
-        name: category,
-        value: client.commands
-          .filter((command) => command.category === category)
-          .map((command) => `[${command.name}](https://kyubot.com)`)
-          .join(", "),
-        inline: false,
-      }));
+    if (!commandName) {
+      const economy = client.commands
+        .filter(({ category }) => category === "economy")
+        .map(({ name }) => name);
+      const games = client.commands
+        .filter(({ category }) => category === "games")
+        .map(({ name }) => name);
+      const general = client.commands
+        .filter(({ category }) => category === "general")
+        .map(({ name }) => name);
 
       return interaction.reply({
         embeds: [
-          successEmbed({
-            title: "Commands",
-            description: "List of all the available commands",
-            fields,
+          basicEmbed({
+            description: `Here's a list of commands available:\n\n💵 **Economy**\`\`\`${economy.join(
+              ", "
+            )}\`\`\`\n🎮 **Games**\`\`\`${games.join(
+              ", "
+            )}\`\`\`\n📖 **General**\`\`\`${general.join(", ")}\`\`\``,
           }),
         ],
-      });
-    } catch (error) {
-      logger.error(`Error executing '${this.name}' command!`, {
-        label: "Command",
-        message: error.message,
-
-        data,
+        flags: client.interaction_flags,
       });
     }
-  },
 
-  interaction: {
-    name: "help",
-    description: "List of all the available commands",
-    options: [
-      {
-        type: 3,
-        name: "command",
-        description: "Get information about a specific command",
-        required: false,
-      },
-    ],
+    const command = client.commands.get(commandName);
+
+    return interaction.reply({
+      embeds: [
+        basicEmbed({
+          description: `${command.description}:\n\nUsage\`\`\`${command.usage}\`\`\``,
+        }),
+      ],
+      flags: client.interaction_flags,
+    });
   },
 };

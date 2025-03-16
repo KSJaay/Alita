@@ -1,0 +1,7 @@
+{
+  "CLIENT_ID": "",
+  "DISCORD_TOKEN": "",
+  "NODE_ENV": "production",
+  "MONGO_URI": "mongodb://localhost:27017/Alita",
+  "INTERACTION_FLAGS": 0
+}

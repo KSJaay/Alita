@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 7
+    },
+    "auditLog": "/home/ksjaay/alita/logs/.0daef55fb5b742a7d826b99e76c327169eb6e639-audit.json",
+    "files": [
+        {
+            "date": 1742150354625,
+            "name": "/home/ksjaay/alita/logs/log-12-2025.log",
+            "hash": "cc41d6ad56af66e2fb98bf1f8e4850412c936648b9f3a7c47fb2ffaa94899130"
+        }
+    ],
+    "hashType": "sha256"
+}

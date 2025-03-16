@@ -1,0 +1,12 @@
+{
+  "name": "tictactoe",
+  "description": "Play a game of TicTacToe against another player.",
+  "options": [
+    {
+      "name": "member",
+      "description": "Choose your opponent.",
+      "required": true,
+      "type": 6
+    }
+  ]
+}

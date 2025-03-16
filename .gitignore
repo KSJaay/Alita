@@ -22,3 +22,6 @@ yarn-error.log*
 package-lock.json
 .dccache
 yarn.lock
+
+# config
+config.json
