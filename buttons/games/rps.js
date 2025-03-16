@@ -1,16 +1,8 @@
+const {
+  randomRpsMessages,
+  getBotMessage,
+} = require("../../constants/commands/rps");
 const { basicEmbed } = require("../../tools/embeds");
-
-const randomMessages = [
-  "Boom! {{user}} read your move like a book and won! 📖",
-  "Oof, that was brutal! {{user}} absolutely dominated! 😈",
-  "Did you even try? {{user}} makes it look easy! 😆",
-  "Outplayed, outmatched, outclassed! {{user}} takes the win! 🔥",
-  "No contest! {{user}} completely outplayed their opponent! 👏",
-  "A calculated win! {{user}} had the perfect strategy! 🧠",
-  "That's game! {{user}} proves they're the better player! 🎮",
-  "Did you see that? {{user}} just schooled their opponent! 😆",
-  "Better luck next time! {{user}} wasn't messing around! 😏",
-];
 
 const abbrWeapon = { r: "rock", p: "paper", s: "scissors" };
 const icons = { rock: "🪨", paper: "📄", scissors: "✂️" };
@@ -42,17 +34,18 @@ const deleteRpsGame = (client, uniqueId) => {
   client.games.set("rps", rpsGames);
 };
 
-const getRandomMessage = (userId) => {
-  return randomMessages[
-    Math.floor(Math.random() * randomMessages.length)
-  ].replace("{{user}}", `<@${userId}>`);
+const getRandomMessage = (winner, loser) => {
+  return randomRpsMessages[Math.floor(Math.random() * randomRpsMessages.length)]
+    .replace("{winner}", `<@${winner}>`)
+    .replace("{loser}", `<@${loser}>`);
 };
 
 const getRpsWinner = (
   challengerWeapon,
   opponentWeapon,
   challengerId,
-  opponentId
+  opponentId,
+  isBot
 ) => {
   if (challengerWeapon === opponentWeapon)
     return "It's a tie, I'm not even gonna write a cool message.";
@@ -62,7 +55,13 @@ const getRpsWinner = (
     (challengerWeapon === "paper" && opponentWeapon === "rock") ||
     (challengerWeapon === "scissors" && opponentWeapon === "paper");
 
-  return win ? getRandomMessage(challengerId) : getRandomMessage(opponentId);
+  if (isBot) {
+    return getBotMessage(!win);
+  }
+
+  return win
+    ? getRandomMessage(challengerId, opponentId)
+    : getRandomMessage(opponentId, challengerId);
 };
 
 module.exports = {
@@ -117,7 +116,8 @@ module.exports = {
           gameInfo.challenger.weapon,
           botChoice,
           gameInfo.challenger.userId,
-          client.user.id
+          client.user.id,
+          true
         );
 
         deleteRpsGame(client, action);
