@@ -1,31 +1,19 @@
+// import node_modules
 const fs = require("fs");
-const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const Discord = require("discord.js");
+
+const config = require("./config.json");
 const logger = require("./logger");
 
-dotenv.config();
-const client = new Discord.Client({
-  intents: [
-    Discord.GatewayIntentBits.Guilds,
-    Discord.GatewayIntentBits.GuildBans,
-    Discord.GatewayIntentBits.GuildInvites,
-    Discord.GatewayIntentBits.GuildMembers,
-    Discord.GatewayIntentBits.GuildMessages,
-    Discord.GatewayIntentBits.GuildPresences,
-  ],
-});
-
 async function init() {
-  client.commands = new Discord.Collection();
-  client.events = new Discord.Collection();
+  const client = new Discord.Client({
+    intents: ["Guilds", "GuildMembers", "GuildMessages", "GuildMembers"],
+    presence: { activities: [{ name: "for /help", type: 3 }] },
+  });
 
-  // Connect to MongoDB
   await mongoose
-    .connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+    .connect(config.MONGO_URI)
     .then(() => {
       logger.info("Connected to MongoDB");
     })
@@ -38,55 +26,72 @@ async function init() {
       process.exit(1);
     });
 
-  // Load commands and events
+  client.buttons = new Discord.Collection();
+  client.commands = new Discord.Collection();
+  client.games = new Discord.Collection();
+  client.interaction_flags = config.INTERACTION_FLAGS || 0;
+
   const commandFolders = fs.readdirSync(__dirname + "/commands");
 
-  for (const folder of commandFolders) {
+  commandFolders.forEach((directory) => {
     const commandFiles = fs
-      .readdirSync(__dirname + `/commands/${folder}`)
+      .readdirSync(__dirname + `/commands/${directory}`)
       .filter((file) => file.endsWith(".js"));
+
     for (const file of commandFiles) {
-      const command = require(__dirname + `/commands/${folder}/${file}`);
+      const command = require(`./commands/${directory}/${file}`);
       client.commands.set(command.name, command);
-      logger.info(`Loaded command ${command.name}`);
     }
-  }
+  });
+
+  const buttonsFolders = fs.readdirSync(__dirname + "/buttons");
+
+  buttonsFolders.forEach((directory) => {
+    const commandFiles = fs
+      .readdirSync(__dirname + `/buttons/${directory}`)
+      .filter((file) => file.endsWith(".js"));
+
+    for (const file of commandFiles) {
+      const command = require(`./buttons/${directory}/${file}`);
+      client.buttons.set(command.name, command);
+    }
+  });
 
   const eventFiles = fs
     .readdirSync(__dirname + "/events")
     .filter((file) => file.endsWith(".js"));
 
-  for (const file of eventFiles) {
-    const event = require(__dirname + `/events/${file}`);
-    const eventName = file.split(".")[0];
-    client.events.set(eventName, event);
+  for (const eventFile of eventFiles) {
+    const event = require(`./events/${eventFile}`);
+    const eventName = eventFile.split(".")[0];
     client.on(eventName, event.bind(null, client));
-    logger.info(`Loaded event ${eventName}`);
   }
 
-  client.login(process.env.DISCORD_TOKEN);
+  process.on("uncaughtException", (error) => {
+    if (error.message === "Missing Permissions") {
+      return;
+    }
+
+    // Log message
+    logger.error("uncaughtException", {
+      error: error.message || null,
+      stack: error.stack || null,
+    });
+  });
+
+  process.on("unhandledRejection", (error) => {
+    logger.error("unhandledRejection", {
+      error: error?.message || null,
+      stack: error?.stack || null,
+    });
+  });
+
+  process.on("SIGTERM", async function () {
+    logger.error("SIGTERM", { message: "Terminating bot" });
+    process.exit(0);
+  });
+
+  client.login(config.DISCORD_TOKEN);
 }
 
-// Graceful shutdown. Close the database connection before exiting
-process.on("SIGTERM", async () => {
-  logger.info("SIGTERM signal received, shutting down gracefully");
-  await mongoose.disconnect();
-  process.exit(0);
-});
-
-// Catch any uncaught exceptions or unhandled rejections
-process.on("uncaughtException", (error) => {
-  logger.error("uncaughtException", {
-    error: error.message || null,
-  });
-});
-
-process.on("unhandledRejection", (error) => {
-  logger.warn("unhandledRejection:\n", {
-    error: error?.message || null,
-    stack: error?.stack || null,
-  });
-});
-
-// Start the bot
 init();

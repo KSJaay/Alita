@@ -1,0 +1,11 @@
+{
+  "name": "rps",
+  "description": "Play a game of rock, paper, scissors.",
+  "options": [
+    {
+      "name": "member",
+      "description": "Choose your opponent.",
+      "type": 6
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "coinflip",
+  "description": "Flip a coin and choose the winning side.",
+  "options": [
+    {
+      "type": 3,
+      "name": "side",
+      "description": "Choose the side of the coin to flip.",
+      "required": true,
+      "choices": [
+        {
+          "name": "Heads",
+          "value": "heads"
+        },
+        {
+          "name": "Tails",
+          "value": "tails"
+        }
+      ]
+    }
+  ]
+}

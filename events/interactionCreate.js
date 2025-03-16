@@ -1,45 +1,32 @@
-// import node_modules
-const {InteractionType, PermissionsBitField} = require("discord.js");
-
 // import local files
-const {fetchOrCreateGuild} = require("../database/queries/guild");
 const logger = require("../logger");
 
 async function run(client, interaction) {
   try {
-    if (interaction.isChatInputCommand() && interaction.inCachedGuild()) {
-      if (interaction.type === InteractionType.ApplicationCommand) {
-        const command = client.commands.get(interaction.commandName);
+    if (!interaction.inCachedGuild()) {
+      return;
+    }
 
-        if (!command) {
-          return interaction.reply({
-            content: "Unable to find this command.",
-            ephemeral: true,
-          });
-        }
+    if (interaction.isChatInputCommand()) {
+      const command = client.commands.get(interaction.commandName);
+      if (!command) return;
 
-        let guild_data = {};
+      return command.execute(client, interaction);
+    }
 
-        if (command.database?.guild) {
-          guild_data = await fetchOrCreateGuild(interaction.guildId);
-        }
+    if (interaction.isButton()) {
+      const [commandName] = interaction.customId.split("_");
 
-        if (
-          command.permissions?.admin &&
-          !interaction.memberPermissions.has(
-            PermissionsBitField.Flags.Administrator
-          )
-        ) {
-          return interaction.reply({
-            content: "You do not have permission to run this command.",
-            ephemeral: true,
-          });
-        }
+      const command = client.buttons.get(commandName);
 
-        const data = {guild: guild_data};
-
-        return command.execute(client, interaction, data);
+      if (!command) {
+        return interaction.reply({
+          content: "Button not found.",
+          flags: client.interaction_flags,
+        });
       }
+
+      return command.execute(client, interaction);
     }
   } catch (error) {
     logger.error("interactionCreate", {

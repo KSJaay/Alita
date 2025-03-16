@@ -1,38 +1,105 @@
-// Upload all the interactions to discord
-
 const fs = require("fs");
 const path = require("path");
-const dotenv = require("dotenv");
+const { REST } = require("@discordjs/rest");
+const { Routes } = require("discord-api-types/v9");
 
-const {REST} = require("@discordjs/rest");
-const {Routes} = require("discord-api-types/v9");
+const config = require("../config.json");
 
-dotenv.config();
+const init = async () => {
+  const interactionsFolderPath = path.join(
+    process.cwd(),
+    "/constants/interactions"
+  );
 
-const commands = [];
-const commandPath = path.join(__dirname, "..", "/commands");
-const commandFolders = fs.readdirSync(commandPath);
+  const commands = [];
 
-for (const folder of commandFolders) {
   const commandFiles = fs
-    .readdirSync(commandPath + `/${folder}`)
-    .filter((file) => file.endsWith(".js"));
+    .readdirSync(interactionsFolderPath)
+    .filter((file) => file.endsWith(".json"));
+
   for (const file of commandFiles) {
-    const command = require(commandPath + `/${folder}/${file}`);
-    commands.push(command.interaction);
+    try {
+      const filePath = path.join(interactionsFolderPath, file);
+      const command = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+
+      if (!command || JSON.stringify(command) === "{}") {
+        console.log("INTERACTIONS", {
+          message: `No interactions found in ${file}`,
+        });
+        continue;
+      }
+
+      commands.push(command);
+    } catch (error) {
+      console.log("INTERACTIONS", {
+        message: error?.message,
+        stack: error?.stack,
+        file,
+      });
+    }
   }
-}
 
-const rest = new REST({version: "9"}).setToken(process.env.DISCORD_TOKEN);
+  const clientId = config.CLIENT_ID;
+  const discordToken = config.DISCORD_TOKEN;
 
-(async () => {
-  try {
-    await rest.put(Routes.applicationCommands(process.env.DISCORD_CLIENT_ID), {
-      body: commands,
+  if (!discordToken) {
+    console.log("INTERACTIONS", {
+      message: "DISCORD_TOKEN is not set in .env file",
     });
+    return;
+  }
 
-    console.log("Successfully registered application commands.");
+  const rest = new REST({ version: "9" }).setToken(discordToken);
+
+  try {
+    if (!clientId) {
+      console.log("INTERACTIONS", {
+        message: "CLIENT_ID is not set in .env file",
+      });
+      return;
+    }
+
+    if (config.NODE_ENV === "development") {
+      if (!config.SLASH_COMMAND_GUILD_ID_DEV) {
+        console.log("INTERACTIONS", {
+          message: "SLASH_COMMAND_GUILD_ID_DEV is not set in .env file",
+        });
+        return;
+      }
+
+      await rest
+        .put(
+          Routes.applicationGuildCommands(
+            clientId,
+            config.SLASH_COMMAND_GUILD_ID_DEV
+          ),
+          {
+            body: commands,
+          }
+        )
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+
+      console.log("INTERACTIONS", {
+        message: "Interactions successfully registered for development",
+      });
+    }
+
+    if (config.NODE_ENV === "production") {
+      await rest
+        .put(Routes.applicationCommands(clientId), {
+          body: commands,
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+
+      console.log("INTERACTIONS", {
+        message: "Interactions successfully registered for production",
+      });
+    }
   } catch (error) {
     console.error(error);
   }
-})();
+};
+
+init();
